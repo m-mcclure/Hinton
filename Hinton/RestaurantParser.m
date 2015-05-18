@@ -36,9 +36,9 @@
 
   NSDictionary *hoursInfo = restaurantInfo[@"hours"];
   NSString *monday = hoursInfo[@"mon"];
-  NSString *tuesday = hoursInfo[@"tues"];
+  NSString *tuesday = hoursInfo[@"tue"];
   NSString *wednesday = hoursInfo[@"wed"];
-  NSString *thursday = hoursInfo[@"thus"];
+  NSString *thursday = hoursInfo[@"thu"];
   NSString *friday = hoursInfo[@"fri"];
   NSString *saturday = hoursInfo[@"sat"];
   NSString *sunday = hoursInfo[@"sun"];
@@ -67,9 +67,6 @@
   newRestaurant.photos = newPhotos;
   
   return newRestaurant;
-//  @property (strong, nonatomic) Address *address;
-//  @property (strong, nonatomic) NSArray *photos;
-
   
 }
 

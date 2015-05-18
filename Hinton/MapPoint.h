@@ -15,4 +15,6 @@
 @property (strong, nonatomic) NSString *caption;
 @property (strong, nonatomic) NSString *restaurantId;
 
+-(instancetype)initWithLatitude:(NSNumber *)latitude longitude:(NSNumber *)longitude caption:(NSString *)caption restaurantID:(NSString *)restaurantID;
+
 @end

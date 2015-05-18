@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD8976CE1B0A83A800564BC4 /* MapPointParser.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8976CD1B0A83A800564BC4 /* MapPointParser.m */; };
 		ADEBD9581B0A5227009418BD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ADEBD9571B0A5227009418BD /* main.m */; };
 		ADEBD95B1B0A5227009418BD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ADEBD95A1B0A5227009418BD /* AppDelegate.m */; };
 		ADEBD95E1B0A5227009418BD /* Hinton.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ADEBD95C1B0A5227009418BD /* Hinton.xcdatamodeld */; };
@@ -35,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AD8976CC1B0A83A800564BC4 /* MapPointParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapPointParser.h; sourceTree = "<group>"; };
+		AD8976CD1B0A83A800564BC4 /* MapPointParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapPointParser.m; sourceTree = "<group>"; };
 		ADEBD9521B0A5227009418BD /* Hinton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hinton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADEBD9561B0A5227009418BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ADEBD9571B0A5227009418BD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -151,6 +154,8 @@
 				ADEBD9AC1B0A72AC009418BD /* RestaurantParser.m */,
 				ADEBD9A21B0A6D72009418BD /* MapPoint.h */,
 				ADEBD9A31B0A6D72009418BD /* MapPoint.m */,
+				AD8976CC1B0A83A800564BC4 /* MapPointParser.h */,
+				AD8976CD1B0A83A800564BC4 /* MapPointParser.m */,
 				ADEBD99F1B0A6D72009418BD /* Hours.h */,
 				ADEBD9A01B0A6D72009418BD /* Hours.m */,
 				ADEBD9A81B0A6E32009418BD /* MenuItemPhoto.h */,
@@ -270,6 +275,7 @@
 				ADEBD9A11B0A6D72009418BD /* Hours.m in Sources */,
 				ADEBD9A71B0A6D72009418BD /* Restaurant.m in Sources */,
 				ADEBD99B1B0A6D71009418BD /* Address.m in Sources */,
+				AD8976CE1B0A83A800564BC4 /* MapPointParser.m in Sources */,
 				ADEBD9AA1B0A6E32009418BD /* MenuItemPhoto.m in Sources */,
 				ADEBD9AD1B0A72AC009418BD /* RestaurantParser.m in Sources */,
 				ADEBD9A41B0A6D72009418BD /* MapPoint.m in Sources */,
@@ -470,6 +476,7 @@
 				ADEBD97A1B0A5227009418BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ADEBD97B1B0A5227009418BD /* Build configuration list for PBXNativeTarget "HintonTests" */ = {
 			isa = XCConfigurationList;
@@ -478,6 +485,7 @@
 				ADEBD97D1B0A5227009418BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

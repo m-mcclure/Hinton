@@ -10,4 +10,14 @@
 
 @implementation MapPoint
 
+-(instancetype)initWithLatitude:(NSNumber *)latitude longitude:(NSNumber *)longitude caption:(NSString *)caption restaurantID:(NSString *)restaurantID {
+  if (self = [super init]) {
+    self.latitude = latitude;
+    self.longitude = longitude;
+    self.caption = caption;
+    self.restaurantId = restaurantID;
+  }
+  return self;
+}
+
 @end
