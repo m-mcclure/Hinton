@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "BackendService.h"
+#import "MapPoint.h"
 #import <MapKit/MapKit.h>
 
 @interface ViewController () <MKMapViewDelegate>
@@ -27,7 +28,14 @@
   self.mapView.delegate = self;
   self.mapPoints = [BackendService mapPointsForArea:CGRectZero];
 
-  [self.mapView addAnnotation:self.mapPoints[0]];
+  MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
+//  MapPoint *mapPoint = self.mapPoints[0];
+  point.coordinate = CLLocationCoordinate2DMake(47.622152, -122.312965);
+  point.title = @"test";
+  
+  [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(point.coordinate, 300, 300) animated:YES];
+  
+  [self.mapView addAnnotation:point];
 //  [self.mapView addAnnotations:self.mapPoints];
 }
 
