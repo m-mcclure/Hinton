@@ -8,13 +8,13 @@
         <attribute name="zip" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Hours" representedClassName="Hours" syncable="YES">
-        <attribute name="friday" optional="YES" syncable="YES"/>
-        <attribute name="monday" optional="YES" syncable="YES"/>
-        <attribute name="saturday" optional="YES" syncable="YES"/>
-        <attribute name="sunday" optional="YES" syncable="YES"/>
-        <attribute name="thursday" optional="YES" syncable="YES"/>
-        <attribute name="tuesday" optional="YES" syncable="YES"/>
-        <attribute name="wednesday" optional="YES" syncable="YES"/>
+        <attribute name="friday" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="monday" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="saturday" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sunday" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="thursday" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tuesday" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="wednesday" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="MapPoint" representedClassName="MapPoint" syncable="YES">
         <attribute name="caption" optional="YES" attributeType="String" syncable="YES"/>

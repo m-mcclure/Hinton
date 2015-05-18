@@ -16,4 +16,6 @@
 @property (nonatomic, retain) NSString * state;
 @property (nonatomic, retain) NSString * zip;
 
+-(instancetype)initWithStreetNumber:(NSString *)streetNumber streetName:(NSString *)streetName city:(NSString *)city state:(NSString *)state zip:(NSString *)zip;
+
 @end

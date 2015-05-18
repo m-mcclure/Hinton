@@ -11,10 +11,15 @@
 
 @implementation Address
 
-@dynamic streetNumber;
-@dynamic streetName;
-@dynamic city;
-@dynamic state;
-@dynamic zip;
+-(instancetype)initWithStreetNumber:(NSString *)streetNumber streetName:(NSString *)streetName city:(NSString *)city state:(NSString *)state zip:(NSString *)zip {
+  if (self = [super init]) {
+    self.streetNumber = streetNumber;
+    self.streetName = streetName;
+    self.city = city;
+    self.state = state;
+    self.zip = zip;
+  }
+  return self;
+}
 
 @end

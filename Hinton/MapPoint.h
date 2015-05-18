@@ -10,9 +10,9 @@
 
 @interface MapPoint : NSObject
 
-@property (strong, nonatomic) NSNumber * latitude;
-@property (strong, nonatomic) NSNumber * longitude;
-@property (strong, nonatomic) NSString * caption;
+@property (strong, nonatomic) NSNumber *latitude;
+@property (strong, nonatomic) NSNumber *longitude;
+@property (strong, nonatomic) NSString *caption;
 @property (strong, nonatomic) NSString *restaurantId;
 
 @end

@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 @class Address;
+@class Hours;
+@class MenuItemPhoto;
 
 @interface Restaurant : NSObject
 
@@ -15,9 +17,11 @@
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) Address *address;
 @property (strong, nonatomic) NSString *phone;
+@property (strong, nonatomic) Hours *hours;
 @property (strong, nonatomic) NSString *genre;
 @property (strong, nonatomic) NSNumber *pricePoint;
 @property (strong, nonatomic) NSString *recipe;
+@property (strong, nonatomic) NSArray *photos;
 @property (strong, nonatomic) NSURL *blogURL;
 @property (strong, nonatomic) NSURL *mainURL;
 @property (strong, nonatomic) NSURL *menuURL;

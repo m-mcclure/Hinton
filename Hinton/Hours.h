@@ -18,4 +18,6 @@
 @property (strong, nonatomic) NSString *saturdayHours;
 @property (strong, nonatomic) NSString *sundayHours;
 
+-(instancetype)initWithMonday:(NSString *)monday Tuesday:(NSString *)tuesday Wednesday:(NSString *)wednesday Thursday:(NSString *)thursday Friday:(NSString *)friday Saturday:(NSString *)saturday Sunday:(NSString *)sunday;
+
 @end

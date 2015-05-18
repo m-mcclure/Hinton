@@ -10,4 +10,13 @@
 
 @implementation MenuItemPhoto
 
+-(instancetype)initWithID:(NSString *)photoID caption:(NSString *)caption data:(NSData *)photoData {
+  if (self = [super init]) {
+    self.photoId = photoID;
+    self.caption = caption;
+    self.photoData = photoData;
+  }
+  return self;
+}
+
 @end

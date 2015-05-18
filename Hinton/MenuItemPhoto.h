@@ -14,4 +14,6 @@
 @property (strong, nonatomic) NSData * photoData;
 @property (strong, nonatomic) NSString * caption;
 
+-(instancetype)initWithID:(NSString *)photoID caption:(NSString *)caption data:(NSData *)photoData;
+
 @end

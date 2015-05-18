@@ -21,6 +21,7 @@
 		ADEBD9A41B0A6D72009418BD /* MapPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = ADEBD9A31B0A6D72009418BD /* MapPoint.m */; };
 		ADEBD9A71B0A6D72009418BD /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = ADEBD9A61B0A6D72009418BD /* Restaurant.m */; };
 		ADEBD9AA1B0A6E32009418BD /* MenuItemPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = ADEBD9A91B0A6E32009418BD /* MenuItemPhoto.m */; };
+		ADEBD9AD1B0A72AC009418BD /* RestaurantParser.m in Sources */ = {isa = PBXBuildFile; fileRef = ADEBD9AC1B0A72AC009418BD /* RestaurantParser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,8 @@
 		ADEBD9A61B0A6D72009418BD /* Restaurant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Restaurant.m; sourceTree = "<group>"; };
 		ADEBD9A81B0A6E32009418BD /* MenuItemPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItemPhoto.h; sourceTree = "<group>"; };
 		ADEBD9A91B0A6E32009418BD /* MenuItemPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItemPhoto.m; sourceTree = "<group>"; };
+		ADEBD9AB1B0A72AC009418BD /* RestaurantParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantParser.h; sourceTree = "<group>"; };
+		ADEBD9AC1B0A72AC009418BD /* RestaurantParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantParser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +147,8 @@
 			children = (
 				ADEBD9A51B0A6D72009418BD /* Restaurant.h */,
 				ADEBD9A61B0A6D72009418BD /* Restaurant.m */,
+				ADEBD9AB1B0A72AC009418BD /* RestaurantParser.h */,
+				ADEBD9AC1B0A72AC009418BD /* RestaurantParser.m */,
 				ADEBD9A21B0A6D72009418BD /* MapPoint.h */,
 				ADEBD9A31B0A6D72009418BD /* MapPoint.m */,
 				ADEBD99F1B0A6D72009418BD /* Hours.h */,
@@ -266,6 +271,7 @@
 				ADEBD9A71B0A6D72009418BD /* Restaurant.m in Sources */,
 				ADEBD99B1B0A6D71009418BD /* Address.m in Sources */,
 				ADEBD9AA1B0A6E32009418BD /* MenuItemPhoto.m in Sources */,
+				ADEBD9AD1B0A72AC009418BD /* RestaurantParser.m in Sources */,
 				ADEBD9A41B0A6D72009418BD /* MapPoint.m in Sources */,
 				ADEBD9581B0A5227009418BD /* main.m in Sources */,
 			);
