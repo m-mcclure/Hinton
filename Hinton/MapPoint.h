@@ -7,14 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MapKit/MapKit.h>
 
-@interface MapPoint : NSObject
+@interface MapPoint : NSObject <MKAnnotation>
 
-@property (strong, nonatomic) NSNumber *latitude;
-@property (strong, nonatomic) NSNumber *longitude;
-@property (strong, nonatomic) NSString *caption;
+@property (nonatomic, assign) CLLocationCoordinate2D coordinate;
+@property (nonatomic, copy) NSString *title;
 @property (strong, nonatomic) NSString *restaurantId;
 
--(instancetype)initWithLatitude:(NSNumber *)latitude longitude:(NSNumber *)longitude caption:(NSString *)caption restaurantID:(NSString *)restaurantID;
+-(instancetype)initWithLatitude:(NSNumber *)latitude longitude:(NSNumber *)longitude title:(NSString *)title restaurantID:(NSString *)restaurantID;
 
 @end

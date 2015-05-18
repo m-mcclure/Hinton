@@ -22,12 +22,13 @@
   NSMutableArray *returnArray = [NSMutableArray array];
   
   for (NSDictionary *mapPointInfo in mapPoints) {
-    NSNumber *lat = mapPointInfo[@"loc"][@"lat"];
-    NSNumber *lon = mapPointInfo[@"loc"][@"long"];
+    NSDictionary *locInfo = mapPointInfo[@"loc"];
+    NSNumber *lat = locInfo[@"lat"];
+    NSNumber *lon = locInfo[@"long"];
     NSString *caption = mapPointInfo[@"caption"];
     NSString *restaurantID = mapPointInfo[@"r_id"];
 
-    MapPoint *newMapPoint = [[MapPoint alloc] initWithLatitude:lat longitude:lon caption:caption restaurantID:restaurantID];
+    MapPoint *newMapPoint = [[MapPoint alloc] initWithLatitude:lat longitude:lon title:caption restaurantID:restaurantID];
     
     [returnArray addObject:newMapPoint];
     

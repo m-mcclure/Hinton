@@ -28,8 +28,8 @@
   newRestaurant.name = restaurantInfo[@"name"];
   newRestaurant.phone = restaurantInfo[@"phone"];
   newRestaurant.genre = restaurantInfo[@"genre"];
-  newRestaurant.pricePoint = [NSNumber numberWithInt:(int)restaurantInfo[@"price"]];
-  newRestaurant.recipe = restaurantInfo[@"recipe"];
+  newRestaurant.pricePoint = restaurantInfo[@"price"];
+  newRestaurant.recipes = restaurantInfo[@"menu_item"];
   newRestaurant.blogURL = [NSURL URLWithString:restaurantInfo[@"blog_link"]];
   newRestaurant.mainURL = [NSURL URLWithString:restaurantInfo[@"r_site"]];
   newRestaurant.menuURL = [NSURL URLWithString:restaurantInfo[@"menu_link"]];

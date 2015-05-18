@@ -19,8 +19,8 @@
 @property (strong, nonatomic) NSString *phone;
 @property (strong, nonatomic) Hours *hours;
 @property (strong, nonatomic) NSString *genre;
-@property (strong, nonatomic) NSNumber *pricePoint;
-@property (strong, nonatomic) NSString *recipe;
+@property (strong, nonatomic) NSString *pricePoint;
+@property (strong, nonatomic) NSArray *recipes;
 @property (strong, nonatomic) NSArray *photos;
 @property (strong, nonatomic) NSURL *blogURL;
 @property (strong, nonatomic) NSURL *mainURL;
