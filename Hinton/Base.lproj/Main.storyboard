@@ -17,21 +17,56 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ha0-v2-4lf">
+                                <rect key="frame" x="0.0" y="20" width="600" height="116"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HINTON | RESTAURANT RECOMMENDATIONS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hre-6l-7jp">
+                                        <rect key="frame" x="161" y="90" width="278" height="16"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hinton_logo_map_header_size" translatesAutoresizingMaskIntoConstraints="NO" id="rLS-Y2-V9V">
+                                        <rect key="frame" x="263" y="8" width="74" height="74"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="74" id="8lo-Kr-Ktp"/>
+                                            <constraint firstAttribute="height" constant="74" id="h3W-ex-9Gc"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Hre-6l-7jp" firstAttribute="top" secondItem="rLS-Y2-V9V" secondAttribute="bottom" constant="8" id="D2v-pf-Z2C"/>
+                                    <constraint firstAttribute="centerX" secondItem="Hre-6l-7jp" secondAttribute="centerX" id="Kkf-5E-Idx"/>
+                                    <constraint firstAttribute="bottom" secondItem="Hre-6l-7jp" secondAttribute="bottom" constant="10" id="jiP-sy-x3D"/>
+                                    <constraint firstAttribute="centerX" secondItem="rLS-Y2-V9V" secondAttribute="centerX" id="upB-YS-bJK"/>
+                                    <constraint firstItem="rLS-Y2-V9V" firstAttribute="top" secondItem="ha0-v2-4lf" secondAttribute="top" constant="8" id="usc-6w-Quo"/>
+                                </constraints>
+                            </view>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gqW-np-WuC">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="136" width="600" height="464"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gqW-np-WuC" secondAttribute="bottom" id="MTw-FW-MaM"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="gqW-np-WuC" secondAttribute="trailing" constant="-16" id="XSj-PP-Jdf"/>
-                            <constraint firstItem="gqW-np-WuC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="XrD-VQ-nzS"/>
-                            <constraint firstItem="gqW-np-WuC" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="cYk-ra-XXV"/>
+                            <constraint firstItem="ha0-v2-4lf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="57w-cF-upr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gqW-np-WuC" secondAttribute="trailing" constant="-16" id="BIw-Sl-KeG"/>
+                            <constraint firstItem="ha0-v2-4lf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="Fs1-9R-qd7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ha0-v2-4lf" secondAttribute="trailing" constant="-16" id="LTA-XL-wE5"/>
+                            <constraint firstItem="gqW-np-WuC" firstAttribute="top" secondItem="ha0-v2-4lf" secondAttribute="bottom" id="UmS-H8-mDR"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gqW-np-WuC" secondAttribute="bottom" id="dXh-po-0l7"/>
+                            <constraint firstItem="gqW-np-WuC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="hqj-2e-p0H"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="gqW-np-WuC" id="wr7-l1-474"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="hinton_logo_map_header_size" width="74" height="74"/>
+    </resources>
 </document>
