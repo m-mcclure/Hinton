@@ -12,6 +12,8 @@
 		AD8976D41B0A917E00564BC4 /* sample_map_point_json.json in Resources */ = {isa = PBXBuildFile; fileRef = AD8976D31B0A917E00564BC4 /* sample_map_point_json.json */; };
 		AD8976D71B0A948000564BC4 /* BackendService.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8976D61B0A948000564BC4 /* BackendService.m */; };
 		AD8976D91B0A9BD200564BC4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD8976D81B0A9BD200564BC4 /* MapKit.framework */; };
+		AD8976E81B0BC3E700564BC4 /* RestaurantDetailCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8976E71B0BC3E700564BC4 /* RestaurantDetailCollectionViewController.m */; };
+		AD8976EB1B0BCE1D00564BC4 /* CloseBannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8976EA1B0BCE1D00564BC4 /* CloseBannerViewController.m */; };
 		ADEBD9581B0A5227009418BD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ADEBD9571B0A5227009418BD /* main.m */; };
 		ADEBD95B1B0A5227009418BD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ADEBD95A1B0A5227009418BD /* AppDelegate.m */; };
 		ADEBD95E1B0A5227009418BD /* Hinton.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ADEBD95C1B0A5227009418BD /* Hinton.xcdatamodeld */; };
@@ -46,6 +48,10 @@
 		AD8976D51B0A948000564BC4 /* BackendService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackendService.h; sourceTree = "<group>"; };
 		AD8976D61B0A948000564BC4 /* BackendService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackendService.m; sourceTree = "<group>"; };
 		AD8976D81B0A9BD200564BC4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		AD8976E61B0BC3E700564BC4 /* RestaurantDetailCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantDetailCollectionViewController.h; sourceTree = "<group>"; };
+		AD8976E71B0BC3E700564BC4 /* RestaurantDetailCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantDetailCollectionViewController.m; sourceTree = "<group>"; };
+		AD8976E91B0BCE1D00564BC4 /* CloseBannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CloseBannerViewController.h; sourceTree = "<group>"; };
+		AD8976EA1B0BCE1D00564BC4 /* CloseBannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloseBannerViewController.m; sourceTree = "<group>"; };
 		ADEBD9521B0A5227009418BD /* Hinton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hinton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADEBD9561B0A5227009418BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ADEBD9571B0A5227009418BD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -98,6 +104,10 @@
 			children = (
 				ADEBD95F1B0A5227009418BD /* ViewController.h */,
 				ADEBD9601B0A5227009418BD /* ViewController.m */,
+				AD8976E61B0BC3E700564BC4 /* RestaurantDetailCollectionViewController.h */,
+				AD8976E71B0BC3E700564BC4 /* RestaurantDetailCollectionViewController.m */,
+				AD8976E91B0BCE1D00564BC4 /* CloseBannerViewController.h */,
+				AD8976EA1B0BCE1D00564BC4 /* CloseBannerViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -303,6 +313,7 @@
 				ADEBD9611B0A5227009418BD /* ViewController.m in Sources */,
 				ADEBD9A11B0A6D72009418BD /* Hours.m in Sources */,
 				AD8976D71B0A948000564BC4 /* BackendService.m in Sources */,
+				AD8976E81B0BC3E700564BC4 /* RestaurantDetailCollectionViewController.m in Sources */,
 				ADEBD9A71B0A6D72009418BD /* Restaurant.m in Sources */,
 				ADEBD99B1B0A6D71009418BD /* Address.m in Sources */,
 				AD8976CE1B0A83A800564BC4 /* MapPointParser.m in Sources */,
@@ -310,6 +321,7 @@
 				ADEBD9AD1B0A72AC009418BD /* RestaurantParser.m in Sources */,
 				ADEBD9A41B0A6D72009418BD /* MapPoint.m in Sources */,
 				ADEBD9581B0A5227009418BD /* main.m in Sources */,
+				AD8976EB1B0BCE1D00564BC4 /* CloseBannerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
