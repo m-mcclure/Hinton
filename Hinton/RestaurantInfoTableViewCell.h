@@ -7,15 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class Restaurant;
 
 @interface RestaurantInfoTableViewCell : UITableViewCell
-@property (strong, nonatomic) IBOutlet UILabel *restaurantNameLabel;
-@property (strong, nonatomic) IBOutlet UILabel *restaurantPriceLabel;
-@property (strong, nonatomic) IBOutlet UIButton *mainWebsiteButton;
-@property (strong, nonatomic) IBOutlet UIButton *menuWebsiteButton;
-@property (strong, nonatomic) IBOutlet UIButton *blogWebsiteButton;
-@property (strong, nonatomic) IBOutlet UILabel *restaurantAddressLabel;
-@property (strong, nonatomic) IBOutlet UILabel *restaurantHoursLabel;
-@property (strong, nonatomic) IBOutlet UILabel *restaurantPhoneLabel;
+
+@property (strong, nonatomic) Restaurant *restaurantToDisplay;
 
 @end

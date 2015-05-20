@@ -102,8 +102,8 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="French, $$$" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="763-g8-SeD">
-                                                    <rect key="frame" x="255" y="40" width="91" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$$$" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="763-g8-SeD">
+                                                    <rect key="frame" x="311" y="40" width="29" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -180,6 +180,18 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="," lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="onY-V7-ggE">
+                                                    <rect key="frame" x="298" y="40" width="5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="French" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ERg-6W-FG7">
+                                                    <rect key="frame" x="244" y="40" width="53" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="qlx-z2-fnU" firstAttribute="top" secondItem="esj-Pv-icX" secondAttribute="bottom" constant="16" id="0q2-ih-iLn"/>
@@ -187,6 +199,7 @@
                                                 <constraint firstItem="L1U-AH-4f8" firstAttribute="top" secondItem="wTk-Fy-fxe" secondAttribute="topMargin" constant="8" id="8QX-ug-lT5"/>
                                                 <constraint firstItem="ndG-dk-0Kt" firstAttribute="baseline" secondItem="y5v-3v-drt" secondAttribute="baseline" id="AaS-MU-GUY"/>
                                                 <constraint firstItem="3OV-PA-9xN" firstAttribute="leading" secondItem="Vi7-xy-mU8" secondAttribute="trailing" constant="8" id="CaF-wL-eGl"/>
+                                                <constraint firstItem="763-g8-SeD" firstAttribute="baseline" secondItem="ERg-6W-FG7" secondAttribute="baseline" id="DHL-zj-j9l"/>
                                                 <constraint firstItem="LSl-YQ-1lf" firstAttribute="top" secondItem="ndG-dk-0Kt" secondAttribute="bottom" constant="8" id="F6R-ew-5JE"/>
                                                 <constraint firstItem="ndG-dk-0Kt" firstAttribute="top" secondItem="3OV-PA-9xN" secondAttribute="bottom" constant="27" id="HmC-Sm-ps8"/>
                                                 <constraint firstItem="ndG-dk-0Kt" firstAttribute="leading" secondItem="wTk-Fy-fxe" secondAttribute="leadingMargin" id="PvT-bW-Ebg"/>
@@ -196,13 +209,15 @@
                                                 <constraint firstItem="MAR-8W-Noa" firstAttribute="centerY" secondItem="vVc-ZO-e66" secondAttribute="centerY" id="WVv-V1-BRc"/>
                                                 <constraint firstItem="763-g8-SeD" firstAttribute="top" secondItem="L1U-AH-4f8" secondAttribute="bottom" constant="4" id="ZIf-wS-zg3"/>
                                                 <constraint firstItem="MAR-8W-Noa" firstAttribute="centerY" secondItem="AJE-uB-zfJ" secondAttribute="centerY" id="a7s-Gq-SPq"/>
+                                                <constraint firstItem="763-g8-SeD" firstAttribute="leading" secondItem="onY-V7-ggE" secondAttribute="trailing" constant="8" id="eZq-J7-VQm"/>
                                                 <constraint firstItem="esj-Pv-icX" firstAttribute="top" secondItem="LSl-YQ-1lf" secondAttribute="bottom" constant="8" id="flS-vZ-kQi"/>
                                                 <constraint firstItem="Dm6-AC-vcI" firstAttribute="centerY" secondItem="esj-Pv-icX" secondAttribute="centerY" id="gMo-Hh-yA0"/>
                                                 <constraint firstItem="MAR-8W-Noa" firstAttribute="centerY" secondItem="Vi7-xy-mU8" secondAttribute="centerY" id="gZ7-Zd-K4l"/>
                                                 <constraint firstItem="3OV-PA-9xN" firstAttribute="top" secondItem="763-g8-SeD" secondAttribute="bottom" constant="16" id="h4X-G6-7Un"/>
-                                                <constraint firstAttribute="centerX" secondItem="763-g8-SeD" secondAttribute="centerX" id="iyC-4C-O0m"/>
+                                                <constraint firstAttribute="centerX" secondItem="onY-V7-ggE" secondAttribute="centerX" id="i9i-dN-dh2"/>
                                                 <constraint firstItem="esj-Pv-icX" firstAttribute="leading" secondItem="wTk-Fy-fxe" secondAttribute="leadingMargin" id="lWq-Z3-7vU"/>
                                                 <constraint firstAttribute="centerX" secondItem="L1U-AH-4f8" secondAttribute="centerX" id="mQr-Fl-Cal"/>
+                                                <constraint firstItem="763-g8-SeD" firstAttribute="baseline" secondItem="onY-V7-ggE" secondAttribute="baseline" id="nc7-82-xM0"/>
                                                 <constraint firstItem="MAR-8W-Noa" firstAttribute="leading" secondItem="3OV-PA-9xN" secondAttribute="trailing" constant="8" id="pYl-kG-LeJ"/>
                                                 <constraint firstAttribute="centerX" secondItem="3OV-PA-9xN" secondAttribute="centerX" id="pa8-CN-IEX"/>
                                                 <constraint firstItem="LSl-YQ-1lf" firstAttribute="centerY" secondItem="n1F-cc-ilh" secondAttribute="centerY" id="rLm-EJ-W3f"/>
@@ -210,6 +225,7 @@
                                                 <constraint firstItem="MAR-8W-Noa" firstAttribute="centerY" secondItem="3OV-PA-9xN" secondAttribute="centerY" id="ukF-8I-N5I"/>
                                                 <constraint firstItem="Dm6-AC-vcI" firstAttribute="leading" secondItem="esj-Pv-icX" secondAttribute="trailing" constant="16" id="vay-tx-Ox9"/>
                                                 <constraint firstItem="n1F-cc-ilh" firstAttribute="leading" secondItem="LSl-YQ-1lf" secondAttribute="trailing" constant="8" symbolic="YES" id="veG-PU-gNR"/>
+                                                <constraint firstItem="onY-V7-ggE" firstAttribute="leading" secondItem="ERg-6W-FG7" secondAttribute="trailing" constant="1" id="x3N-R0-OKb"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -217,6 +233,7 @@
                                             <outlet property="mainWebsiteButton" destination="vVc-ZO-e66" id="9RD-Gb-K3y"/>
                                             <outlet property="menuWebsiteButton" destination="3OV-PA-9xN" id="rdy-FL-Bqx"/>
                                             <outlet property="restaurantAddressLabel" destination="y5v-3v-drt" id="70L-fY-lHN"/>
+                                            <outlet property="restaurantGenreLabel" destination="ERg-6W-FG7" id="sLp-xM-81C"/>
                                             <outlet property="restaurantHoursLabel" destination="n1F-cc-ilh" id="sx6-KZ-CVH"/>
                                             <outlet property="restaurantNameLabel" destination="L1U-AH-4f8" id="xfc-2n-Q9P"/>
                                             <outlet property="restaurantPhoneLabel" destination="Dm6-AC-vcI" id="ncJ-Cc-5cJ"/>

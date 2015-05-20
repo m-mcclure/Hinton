@@ -8,6 +8,8 @@
 
 #import "RestaurantDetailViewController.h"
 #import "RestaurantMapTableViewCell.h"
+#import "RestaurantInfoTableViewCell.h"
+#import "RestaurantImageTableViewCell.h"
 
 @interface RestaurantDetailViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -19,11 +21,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
   self.tableView.delegate = self;
   self.tableView.dataSource = self;
-//  self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-//  self.tableView.separatorInset = UIEdgeInsetsZero;
 
 }
 
@@ -41,7 +41,7 @@
   
   switch (indexPath.row) {
     case 0:
-      return [self.tableView dequeueReusableCellWithIdentifier:@"InfoCell"];
+      return [self configureInfoCell:[self.tableView dequeueReusableCellWithIdentifier:@"InfoCell"]];
       break;
       
     case 1: {
@@ -52,6 +52,7 @@
     }
       
     case 2:
+      //TODO: Setup the images
       return [self.tableView dequeueReusableCellWithIdentifier:@"ImageCell"];
       break;
       
@@ -72,6 +73,10 @@
 
 -(NSInteger)computeNumberOfRows {
   return 2 + self.menuPhotos.count;
+}
+
+-(RestaurantInfoTableViewCell *)configureInfoCell:(RestaurantInfoTableViewCell *)infoCell {
+  infoCell
 }
 
 
