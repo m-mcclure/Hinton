@@ -9,26 +9,31 @@
 #import "ViewController.h"
 #import "BackendService.h"
 #import "MapPoint.h"
-#import "RestaurantDetailCollectionViewController.h"
-#import "CloseBannerViewController.h"
+#import "RestaurantDetailViewController.h"
+#import "RestaurantMapTableViewCell.h"
+#import "RestaurantImageTableViewCell.h"
 #import <MapKit/MapKit.h>
 
-@interface ViewController () <MKMapViewDelegate, CloseBannerDelegate>
+@interface ViewController () <MKMapViewDelegate, RestaurantDetailDelegate>
 
+@property (strong, nonatomic) IBOutlet UIView *header;
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
-@property (strong, nonatomic) CloseBannerViewController *closeBanner;
+@property (strong, nonatomic) IBOutlet UIProgressView *progressBar;
+@property (strong, nonatomic) RestaurantDetailViewController *restaurantDetail;
 @property (strong, nonatomic) NSArray *mapPoints;
 
 @end
 
 CLLocationDistance initialMapViewDistance = 5000;
+NSTimeInterval dismissViewAnimationDuration = 0.3;
 
 @implementation ViewController
 
 - (void)viewDidLoad {
   [super viewDidLoad];
   
-  self.closeBanner.delegate = self;
+  self.restaurantDetail.delegate = self;
+  [self.progressBar setProgress:0.0 animated:NO];
   
   self.mapView.delegate = self;
   self.mapPoints = [BackendService mapPointsForArea:CGRectZero];
@@ -66,48 +71,45 @@ CLLocationDistance initialMapViewDistance = 5000;
 
 -(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {  
   
-  [self.view addSubview:self.closeBanner.view];
-  [self.closeBanner didMoveToParentViewController:self];
-  [self addChildViewController:self.closeBanner];
+  [self.view addSubview:self.restaurantDetail.view];
+  [self.restaurantDetail didMoveToParentViewController:self];
+  [self addChildViewController:self.restaurantDetail];
+  self.restaurantDetail.view.frame = CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, self.view.frame.size.height - self.header.frame.size.height - [UIApplication sharedApplication].statusBarFrame.size.height);
+  self.restaurantDetail.annotation = view.annotation;
   
-  self.closeBanner.view.frame = CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, 50);
-  
-  [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
-    self.closeBanner.view.frame = CGRectMake(0, self.mapView.frame.origin.y, self.closeBanner.view.frame.size.width, self.closeBanner.view.frame.size.height);
+  [UIView animateWithDuration:dismissViewAnimationDuration delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+    self.restaurantDetail.view.frame = CGRectMake(0, self.mapView.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height - self.header.frame.size.height - [UIApplication sharedApplication].statusBarFrame.size.height);
   } completion:^(BOOL finished) {
-    self.closeBanner.isOnscreen = YES;
+    NSLog(@"tableView height: %f", self.restaurantDetail.view.frame.size.height);
+    NSLog(@"View Controller height: %f", self.view.frame.size.height);
+
+
   }];
   
 }
 
-//-(void)mapViewDidFinishRenderingMap:(MKMapView *)mapView fullyRendered:(BOOL)fullyRendered {
-//  [self.mapView addAnnotations:self.mapPoints];
-//}
-
-//-(void)mapViewWillStartLoadingMap:(MKMapView *)mapView {
-//  [self.mapView addAnnotations:self.mapPoints];
-//}
-//
-//-(void)mapViewWillStartRenderingMap:(MKMapView *)mapView {
-//  [self.mapView addAnnotations:self.mapPoints];
-//}
-
 #pragma mark - CloseBannerDelegate
 
--(void)closeButtonPressed {
-  //TODO: Dismiss the views
+-(void)userDidTapCloseButton {
+  [UIView animateWithDuration:dismissViewAnimationDuration delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+    
+  self.restaurantDetail.view.frame = CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, self.view.frame.size.height - self.header.frame.size.height);
+  
+  } completion:^(BOOL finished) {
+    [self.restaurantDetail.view removeFromSuperview];
+    [self.restaurantDetail didMoveToParentViewController:nil];
+    [self.restaurantDetail removeFromParentViewController];
+  }];
 }
 
 #pragma mark - Custom Property Getters/Setters
 
--(CloseBannerViewController *)closeBanner {
-  if (_closeBanner) {
-    return _closeBanner;
+-(RestaurantDetailViewController *)restaurantDetail {
+  if (_restaurantDetail) {
+    return _restaurantDetail;
   }
-  
-  _closeBanner = [self.storyboard instantiateViewControllerWithIdentifier:@"CloseBannerVC"];
-  return _closeBanner;
-
+  _restaurantDetail = [self.storyboard instantiateViewControllerWithIdentifier:@"RestaurantDetailVC"];
+  return _restaurantDetail;
 }
 
 

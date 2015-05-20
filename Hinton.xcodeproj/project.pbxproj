@@ -12,8 +12,10 @@
 		AD8976D41B0A917E00564BC4 /* sample_map_point_json.json in Resources */ = {isa = PBXBuildFile; fileRef = AD8976D31B0A917E00564BC4 /* sample_map_point_json.json */; };
 		AD8976D71B0A948000564BC4 /* BackendService.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8976D61B0A948000564BC4 /* BackendService.m */; };
 		AD8976D91B0A9BD200564BC4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD8976D81B0A9BD200564BC4 /* MapKit.framework */; };
-		AD8976E81B0BC3E700564BC4 /* RestaurantDetailCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8976E71B0BC3E700564BC4 /* RestaurantDetailCollectionViewController.m */; };
-		AD8976EB1B0BCE1D00564BC4 /* CloseBannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8976EA1B0BCE1D00564BC4 /* CloseBannerViewController.m */; };
+		AD8976EE1B0BDCA800564BC4 /* RestaurantDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8976ED1B0BDCA800564BC4 /* RestaurantDetailViewController.m */; };
+		AD8976F11B0BEFC200564BC4 /* RestaurantInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8976F01B0BEFC200564BC4 /* RestaurantInfoTableViewCell.m */; };
+		AD8976F41B0BFC9D00564BC4 /* RestaurantMapTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8976F31B0BFC9D00564BC4 /* RestaurantMapTableViewCell.m */; };
+		AD8976F71B0BFD3900564BC4 /* RestaurantImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8976F61B0BFD3900564BC4 /* RestaurantImageTableViewCell.m */; };
 		ADEBD9581B0A5227009418BD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ADEBD9571B0A5227009418BD /* main.m */; };
 		ADEBD95B1B0A5227009418BD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ADEBD95A1B0A5227009418BD /* AppDelegate.m */; };
 		ADEBD95E1B0A5227009418BD /* Hinton.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ADEBD95C1B0A5227009418BD /* Hinton.xcdatamodeld */; };
@@ -28,6 +30,7 @@
 		ADEBD9A71B0A6D72009418BD /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = ADEBD9A61B0A6D72009418BD /* Restaurant.m */; };
 		ADEBD9AA1B0A6E32009418BD /* MenuItemPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = ADEBD9A91B0A6E32009418BD /* MenuItemPhoto.m */; };
 		ADEBD9AD1B0A72AC009418BD /* RestaurantParser.m in Sources */ = {isa = PBXBuildFile; fileRef = ADEBD9AC1B0A72AC009418BD /* RestaurantParser.m */; };
+		E39936FD157F7F4F6D802B65 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16ADD4EA948B69DEA7CF5958 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		16ADD4EA948B69DEA7CF5958 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD8976CC1B0A83A800564BC4 /* MapPointParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapPointParser.h; sourceTree = "<group>"; };
 		AD8976CD1B0A83A800564BC4 /* MapPointParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapPointParser.m; sourceTree = "<group>"; };
 		AD8976D11B0A911600564BC4 /* sample_restaurant_json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sample_restaurant_json.json; sourceTree = "<group>"; };
@@ -48,10 +52,14 @@
 		AD8976D51B0A948000564BC4 /* BackendService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackendService.h; sourceTree = "<group>"; };
 		AD8976D61B0A948000564BC4 /* BackendService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackendService.m; sourceTree = "<group>"; };
 		AD8976D81B0A9BD200564BC4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		AD8976E61B0BC3E700564BC4 /* RestaurantDetailCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantDetailCollectionViewController.h; sourceTree = "<group>"; };
-		AD8976E71B0BC3E700564BC4 /* RestaurantDetailCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantDetailCollectionViewController.m; sourceTree = "<group>"; };
-		AD8976E91B0BCE1D00564BC4 /* CloseBannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CloseBannerViewController.h; sourceTree = "<group>"; };
-		AD8976EA1B0BCE1D00564BC4 /* CloseBannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloseBannerViewController.m; sourceTree = "<group>"; };
+		AD8976EC1B0BDCA800564BC4 /* RestaurantDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantDetailViewController.h; sourceTree = "<group>"; };
+		AD8976ED1B0BDCA800564BC4 /* RestaurantDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantDetailViewController.m; sourceTree = "<group>"; };
+		AD8976EF1B0BEFC200564BC4 /* RestaurantInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantInfoTableViewCell.h; sourceTree = "<group>"; };
+		AD8976F01B0BEFC200564BC4 /* RestaurantInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantInfoTableViewCell.m; sourceTree = "<group>"; };
+		AD8976F21B0BFC9D00564BC4 /* RestaurantMapTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantMapTableViewCell.h; sourceTree = "<group>"; };
+		AD8976F31B0BFC9D00564BC4 /* RestaurantMapTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantMapTableViewCell.m; sourceTree = "<group>"; };
+		AD8976F51B0BFD3900564BC4 /* RestaurantImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantImageTableViewCell.h; sourceTree = "<group>"; };
+		AD8976F61B0BFD3900564BC4 /* RestaurantImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantImageTableViewCell.m; sourceTree = "<group>"; };
 		ADEBD9521B0A5227009418BD /* Hinton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hinton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADEBD9561B0A5227009418BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ADEBD9571B0A5227009418BD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -78,6 +86,8 @@
 		ADEBD9A91B0A6E32009418BD /* MenuItemPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItemPhoto.m; sourceTree = "<group>"; };
 		ADEBD9AB1B0A72AC009418BD /* RestaurantParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantParser.h; sourceTree = "<group>"; };
 		ADEBD9AC1B0A72AC009418BD /* RestaurantParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantParser.m; sourceTree = "<group>"; };
+		EE9802A64B9D26DA9D4DEFE0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		F4094DA743A8C4342F279D30 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +96,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD8976D91B0A9BD200564BC4 /* MapKit.framework in Frameworks */,
+				E39936FD157F7F4F6D802B65 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,15 +110,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		80FF7CB2ABE22B85FCD3B2AB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				16ADD4EA948B69DEA7CF5958 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AD8976CF1B0A8D5100564BC4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				ADEBD95F1B0A5227009418BD /* ViewController.h */,
 				ADEBD9601B0A5227009418BD /* ViewController.m */,
-				AD8976E61B0BC3E700564BC4 /* RestaurantDetailCollectionViewController.h */,
-				AD8976E71B0BC3E700564BC4 /* RestaurantDetailCollectionViewController.m */,
-				AD8976E91B0BCE1D00564BC4 /* CloseBannerViewController.h */,
-				AD8976EA1B0BCE1D00564BC4 /* CloseBannerViewController.m */,
+				AD8976EC1B0BDCA800564BC4 /* RestaurantDetailViewController.h */,
+				AD8976ED1B0BDCA800564BC4 /* RestaurantDetailViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -115,6 +132,12 @@
 		AD8976D01B0A8D5D00564BC4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AD8976EF1B0BEFC200564BC4 /* RestaurantInfoTableViewCell.h */,
+				AD8976F01B0BEFC200564BC4 /* RestaurantInfoTableViewCell.m */,
+				AD8976F21B0BFC9D00564BC4 /* RestaurantMapTableViewCell.h */,
+				AD8976F31B0BFC9D00564BC4 /* RestaurantMapTableViewCell.m */,
+				AD8976F51B0BFD3900564BC4 /* RestaurantImageTableViewCell.h */,
+				AD8976F61B0BFD3900564BC4 /* RestaurantImageTableViewCell.m */,
 				ADEBD9621B0A5227009418BD /* Main.storyboard */,
 				ADEBD9651B0A5227009418BD /* Images.xcassets */,
 				ADEBD9671B0A5227009418BD /* LaunchScreen.xib */,
@@ -129,6 +152,8 @@
 				ADEBD9541B0A5227009418BD /* Hinton */,
 				ADEBD9711B0A5227009418BD /* HintonTests */,
 				ADEBD9531B0A5227009418BD /* Products */,
+				DF52534796FE9D7E5E518BE5 /* Pods */,
+				80FF7CB2ABE22B85FCD3B2AB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -206,6 +231,15 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		DF52534796FE9D7E5E518BE5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F4094DA743A8C4342F279D30 /* Pods.debug.xcconfig */,
+				EE9802A64B9D26DA9D4DEFE0 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -213,9 +247,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ADEBD9781B0A5227009418BD /* Build configuration list for PBXNativeTarget "Hinton" */;
 			buildPhases = (
+				D9A8F94D976CBCE6E030573C /* Check Pods Manifest.lock */,
 				ADEBD94E1B0A5226009418BD /* Sources */,
 				ADEBD94F1B0A5226009418BD /* Frameworks */,
 				ADEBD9501B0A5226009418BD /* Resources */,
+				7E48943768A56CADE7362C3B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -303,25 +339,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7E48943768A56CADE7362C3B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D9A8F94D976CBCE6E030573C /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		ADEBD94E1B0A5226009418BD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				ADEBD95E1B0A5227009418BD /* Hinton.xcdatamodeld in Sources */,
+				AD8976F41B0BFC9D00564BC4 /* RestaurantMapTableViewCell.m in Sources */,
 				ADEBD95B1B0A5227009418BD /* AppDelegate.m in Sources */,
 				ADEBD9611B0A5227009418BD /* ViewController.m in Sources */,
 				ADEBD9A11B0A6D72009418BD /* Hours.m in Sources */,
 				AD8976D71B0A948000564BC4 /* BackendService.m in Sources */,
-				AD8976E81B0BC3E700564BC4 /* RestaurantDetailCollectionViewController.m in Sources */,
 				ADEBD9A71B0A6D72009418BD /* Restaurant.m in Sources */,
 				ADEBD99B1B0A6D71009418BD /* Address.m in Sources */,
+				AD8976F71B0BFD3900564BC4 /* RestaurantImageTableViewCell.m in Sources */,
 				AD8976CE1B0A83A800564BC4 /* MapPointParser.m in Sources */,
+				AD8976F11B0BEFC200564BC4 /* RestaurantInfoTableViewCell.m in Sources */,
 				ADEBD9AA1B0A6E32009418BD /* MenuItemPhoto.m in Sources */,
 				ADEBD9AD1B0A72AC009418BD /* RestaurantParser.m in Sources */,
 				ADEBD9A41B0A6D72009418BD /* MapPoint.m in Sources */,
 				ADEBD9581B0A5227009418BD /* main.m in Sources */,
-				AD8976EB1B0BCE1D00564BC4 /* CloseBannerViewController.m in Sources */,
+				AD8976EE1B0BDCA800564BC4 /* RestaurantDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,6 +518,7 @@
 		};
 		ADEBD9791B0A5227009418BD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F4094DA743A8C4342F279D30 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Hinton/Info.plist;
@@ -457,6 +529,7 @@
 		};
 		ADEBD97A1B0A5227009418BD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE9802A64B9D26DA9D4DEFE0 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Hinton/Info.plist;

@@ -9,15 +9,29 @@
 #import "BackendService.h"
 #import "MapPointParser.h"
 #import "RestaurantParser.h"
+#import "AFNetworking.h"
 
 @implementation BackendService
 
+static NSString * const backendURL = @"http://mysterious-castle-8548.herokuapp.com/api/restaurant/all";
+
 +(NSArray *)mapPointsForArea:(CGRect)area {
   
-  NSURL *url = [[NSBundle mainBundle] URLForResource:@"sample_map_point_json" withExtension:@"json"];
-  NSData *jsonData = [NSData dataWithContentsOfURL:url];
+//  NSURL *url = [[NSBundle mainBundle] URLForResource:@"sample_map_point_json" withExtension:@"json"];
+//  NSData *jsonData = [NSData dataWithContentsOfURL:url];
   
-  return [MapPointParser mapPointsFromJSONData:jsonData];
+  AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+  [manager GET:backendURL parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    NSLog(@"Response: %@", responseObject);
+
+  } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    NSLog(@"Error: %@", error.localizedDescription);
+
+  }];
+  
+  
+  return [NSArray new];
+//  return [MapPointParser mapPointsFromJSONData:jsonData];
 }
 
 +(Restaurant *)restaurantForID:(NSString *)restaurantID {
