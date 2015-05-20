@@ -37,7 +37,6 @@ NSTimeInterval dismissViewAnimationDuration = 0.3;
   [self.progressBar setProgress:0.0 animated:NO];
   
   self.mapView.delegate = self;
-  self.mapPoints = [BackendService mapPointsForArea:CGRectZero];
 
   MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
 //  MapPoint *mapPoint = self.mapPoints[0];
@@ -67,7 +66,11 @@ NSTimeInterval dismissViewAnimationDuration = 0.3;
 }
 
 -(void)mapViewDidFinishLoadingMap:(MKMapView *)mapView {
-  [self.mapView addAnnotations:self.mapPoints];
+  
+  [BackendService fetchMapPointsForArea:CGRectZero completionHandler:^(NSArray *mapPoints, NSError *error) {
+    [self.mapView addAnnotations:mapPoints];
+  }];
+  
 }
 
 -(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {  

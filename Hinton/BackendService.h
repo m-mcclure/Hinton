@@ -11,8 +11,9 @@
 
 @interface BackendService : NSObject
 
-+(NSArray *)mapPointsForArea:(CGRect)area;
-+(Restaurant *)restaurantForID:(NSString *)restaurantID;
++(void)fetchMapPointsForArea:(CGRect)area completionHandler:(void(^)(NSArray *mapPoints, NSError *error))completionHandler;
++(void)fetchRestaurantForID:(NSString *)restaurantID completionHandler:(void(^)(Restaurant *restaurant, NSError *error))completionHandler;
 +(void)fetchGenresList:(void(^)(NSArray *genresList, NSError *error))completion;
++(void)fetchMapPointsForGenre:(NSString *)genre completionHandler:(void(^)(NSArray *mapPoints, NSError *error))completionHandler;
 
 @end

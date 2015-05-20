@@ -9,7 +9,7 @@
 #import "RestaurantImageTableViewCell.h"
 
 @interface RestaurantImageTableViewCell ()
-@property (strong, nonatomic, readonly) IBOutlet UIImageView *imageView;
+@property (strong, nonatomic) IBOutlet UIImageView *fullImageView;
 
 @end
 
@@ -27,7 +27,7 @@
 
 -(void)setImageToDisplay:(UIImage *)imageToDisplay {
   _imageToDisplay = imageToDisplay;
-  self.imageView.image = imageToDisplay;
+  self.fullImageView.image = imageToDisplay;
 }
 
 @end

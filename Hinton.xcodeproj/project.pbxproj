@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		AD761A0A1B0CECD6000E2112 /* ImageResizer.m in Sources */ = {isa = PBXBuildFile; fileRef = AD761A091B0CECD6000E2112 /* ImageResizer.m */; };
 		AD761A0D1B0D0D15000E2112 /* ImageFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = AD761A0C1B0D0D15000E2112 /* ImageFetcher.m */; };
+		AD761A101B0D3EE5000E2112 /* GenreParser.m in Sources */ = {isa = PBXBuildFile; fileRef = AD761A0F1B0D3EE5000E2112 /* GenreParser.m */; };
 		AD8976CE1B0A83A800564BC4 /* MapPointParser.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8976CD1B0A83A800564BC4 /* MapPointParser.m */; };
 		AD8976D21B0A911600564BC4 /* sample_restaurant_json.json in Resources */ = {isa = PBXBuildFile; fileRef = AD8976D11B0A911600564BC4 /* sample_restaurant_json.json */; };
 		AD8976D41B0A917E00564BC4 /* sample_map_point_json.json in Resources */ = {isa = PBXBuildFile; fileRef = AD8976D31B0A917E00564BC4 /* sample_map_point_json.json */; };
@@ -51,6 +52,8 @@
 		AD761A091B0CECD6000E2112 /* ImageResizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageResizer.m; sourceTree = "<group>"; };
 		AD761A0B1B0D0D15000E2112 /* ImageFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageFetcher.h; sourceTree = "<group>"; };
 		AD761A0C1B0D0D15000E2112 /* ImageFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageFetcher.m; sourceTree = "<group>"; };
+		AD761A0E1B0D3EE5000E2112 /* GenreParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenreParser.h; sourceTree = "<group>"; };
+		AD761A0F1B0D3EE5000E2112 /* GenreParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenreParser.m; sourceTree = "<group>"; };
 		AD8976CC1B0A83A800564BC4 /* MapPointParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapPointParser.h; sourceTree = "<group>"; };
 		AD8976CD1B0A83A800564BC4 /* MapPointParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapPointParser.m; sourceTree = "<group>"; };
 		AD8976D11B0A911600564BC4 /* sample_restaurant_json.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sample_restaurant_json.json; sourceTree = "<group>"; };
@@ -220,6 +223,8 @@
 				ADEBD9A61B0A6D72009418BD /* Restaurant.m */,
 				ADEBD9AB1B0A72AC009418BD /* RestaurantParser.h */,
 				ADEBD9AC1B0A72AC009418BD /* RestaurantParser.m */,
+				AD761A0E1B0D3EE5000E2112 /* GenreParser.h */,
+				AD761A0F1B0D3EE5000E2112 /* GenreParser.m */,
 				ADEBD9A21B0A6D72009418BD /* MapPoint.h */,
 				ADEBD9A31B0A6D72009418BD /* MapPoint.m */,
 				AD8976CC1B0A83A800564BC4 /* MapPointParser.h */,
@@ -393,6 +398,7 @@
 				ADEBD9611B0A5227009418BD /* ViewController.m in Sources */,
 				ADEBD9A11B0A6D72009418BD /* Hours.m in Sources */,
 				AD8976D71B0A948000564BC4 /* BackendService.m in Sources */,
+				AD761A101B0D3EE5000E2112 /* GenreParser.m in Sources */,
 				ADEBD9A71B0A6D72009418BD /* Restaurant.m in Sources */,
 				AD761A0D1B0D0D15000E2112 /* ImageFetcher.m in Sources */,
 				ADEBD99B1B0A6D71009418BD /* Address.m in Sources */,

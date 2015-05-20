@@ -36,7 +36,7 @@
   self.tableView.delegate = self;
   self.tableView.dataSource = self;
   
-  self.restaurantToDisplay = [BackendService restaurantForID:self.annotation.restaurantId];
+//  self.restaurantToDisplay = [BackendService restaurantForID:self.annotation.restaurantId];
 }
 
 #pragma mark <UICollectionViewDataSource>

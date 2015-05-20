@@ -142,13 +142,13 @@
 }
 
 - (IBAction)mainWebsiteButtonPressed:(id)sender {
-  
+  [[UIApplication sharedApplication] openURL:self.restaurantToDisplay.mainURL];
 }
 - (IBAction)menuWebsiteButtonPressed:(id)sender {
-  
+  [[UIApplication sharedApplication] openURL:self.restaurantToDisplay.menuURL];
 }
 - (IBAction)blogWebsiteButtonPressed:(id)sender {
-  
+  [[UIApplication sharedApplication] openURL:self.restaurantToDisplay.blogURL];
 }
 
 @end

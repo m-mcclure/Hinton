@@ -11,6 +11,6 @@
 
 @interface RestaurantParser : NSObject
 
-+(Restaurant *)restaurantFromJSONData:(NSData *)jsonData;
++(Restaurant *)restaurantFromJSONDictionary:(NSDictionary *)jsonDictionary;
 
 @end

@@ -288,7 +288,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="imageView" destination="ILp-hQ-DnT" id="PRh-o7-Sos"/>
+                                            <outlet property="fullImageView" destination="ILp-hQ-DnT" id="Vt8-Ml-hSq"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

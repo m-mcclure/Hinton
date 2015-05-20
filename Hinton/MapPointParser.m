@@ -11,23 +11,19 @@
 
 @implementation MapPointParser
 
-+(NSArray *)mapPointsFromJSONData:(NSData *)jsonData {
-  NSError *error;
-  NSArray *mapPoints = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
-  if (error) {
-    NSLog(@"JSON Error: %@", error);
-    return nil;
-  }
-  
++(NSArray *)mapPointsFromJSONDictionary:(NSDictionary *)jsonDictionary {
   NSMutableArray *returnArray = [NSMutableArray array];
   
-  for (NSDictionary *mapPointInfo in mapPoints) {
+  for (NSDictionary *mapPointInfo in jsonDictionary) {
+    NSString *restaurantID = mapPointInfo[@"_id"];
+    
+    NSDictionary *mapInfo = mapPointInfo[@"map"];
+    NSString *caption = mapInfo[@"caption"];
+    
     NSDictionary *locInfo = mapPointInfo[@"loc"];
     NSNumber *lat = locInfo[@"lat"];
     NSNumber *lon = locInfo[@"long"];
-    NSString *caption = mapPointInfo[@"caption"];
-    NSString *restaurantID = mapPointInfo[@"r_id"];
-
+    
     MapPoint *newMapPoint = [[MapPoint alloc] initWithLatitude:lat longitude:lon title:caption restaurantID:restaurantID];
     
     [returnArray addObject:newMapPoint];

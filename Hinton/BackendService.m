@@ -9,51 +9,69 @@
 #import "BackendService.h"
 #import "MapPointParser.h"
 #import "RestaurantParser.h"
+#import "GenreParser.h"
 #import "AFNetworking.h"
 
 @implementation BackendService
 
-static NSString * const backendURL = @"http://mysterious-castle-8548.herokuapp.com/api/restaurant/all";
++(void)fetchMapPointsForArea:(CGRect)area completionHandler:(void (^)(NSArray *mapPoints, NSError *error))completionHandler {
 
-+(NSArray *)mapPointsForArea:(CGRect)area {
-  
-//  NSURL *url = [[NSBundle mainBundle] URLForResource:@"sample_map_point_json" withExtension:@"json"];
-//  NSData *jsonData = [NSData dataWithContentsOfURL:url];
+  NSString *fetchAllURLString = @"http://hinton.herokuapp.com/api/restaurant/all";
   
   AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-  [manager GET:backendURL parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+  [manager GET:fetchAllURLString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
     NSLog(@"Response: %@", responseObject);
-
+    NSArray *mapPoints = [MapPointParser mapPointsFromJSONDictionary:responseObject];
+    completionHandler(mapPoints, nil);
   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
     NSLog(@"Error: %@", error.localizedDescription);
-
+    completionHandler(nil, error);
   }];
   
-  
-  return [NSArray new];
-//  return [MapPointParser mapPointsFromJSONData:jsonData];
 }
 
-+(Restaurant *)restaurantForID:(NSString *)restaurantID {
++(void)fetchRestaurantForID:(NSString *)restaurantID completionHandler:(void (^)(Restaurant *restaurant, NSError *error))completionHandler {
+//  NSURL *url = [[NSBundle mainBundle] URLForResource:@"sample_restaurant_json" withExtension:@"json"];
+//  NSData *jsonData = [NSData dataWithContentsOfURL:url];
   
-  NSURL *url = [[NSBundle mainBundle] URLForResource:@"sample_restaurant_json" withExtension:@"json"];
-  NSData *jsonData = [NSData dataWithContentsOfURL:url];
+  NSString *fetchRestaurantURLString = @"http://hinton.herokuapp.com/api/restaurant/";
+  fetchRestaurantURLString = [fetchRestaurantURLString stringByAppendingString:restaurantID];
   
-  return [RestaurantParser restaurantFromJSONData:jsonData];
+  AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+  [manager GET:fetchRestaurantURLString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    Restaurant *restaurant = [RestaurantParser restaurantFromJSONDictionary:responseObject];
+    completionHandler(restaurant, nil);
+  } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    completionHandler(nil, error);
+  }];
+
 }
 
 +(void)fetchGenresList:(void(^)(NSArray *genresList, NSError *error))completion {
   
-#warning Incomplete
-  NSString *genresURL = @"";
-  
+  NSString *genresURL = @"http://hinton.herokuapp.com/api/restaurant/genre/all";
+
   AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
   [manager GET:genresURL parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-    
+    NSArray *genres = [GenreParser genresFromJSONArray:responseObject];
+    completion(genres, nil);
   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-    
+    completion(nil, error);
   }];
   
+}
+
++(void)fetchMapPointsForGenre:(NSString *)genre completionHandler:(void (^)(NSArray *mapPoints, NSError *error))completionHandler {
+
+  NSString *mapPointforGenreURL = @"http://hinton.herokuapp.com/api/restaurant/genre/";
+  
+  AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+  [manager GET:mapPointforGenreURL parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    NSArray *mapPoints = [MapPointParser mapPointsFromJSONDictionary:responseObject];
+    completionHandler(mapPoints, nil);
+  } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    completionHandler(nil, error);
+  }];
 }
 
 @end
