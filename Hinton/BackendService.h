@@ -13,5 +13,6 @@
 
 +(NSArray *)mapPointsForArea:(CGRect)area;
 +(Restaurant *)restaurantForID:(NSString *)restaurantID;
++(void)fetchGenresList:(void(^)(NSArray *genresList, NSError *error))completion;
 
 @end

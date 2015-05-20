@@ -113,18 +113,27 @@
                                                     <state key="normal" title="Website">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="mainWebsiteButtonPressed:" destination="3hN-QP-dC2" eventType="touchUpInside" id="M1m-wV-ZN2"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3OV-PA-9xN">
                                                     <rect key="frame" x="281" y="77" width="39" height="30"/>
                                                     <state key="normal" title="Menu">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="menuWebsiteButtonPressed:" destination="3hN-QP-dC2" eventType="touchUpInside" id="GFp-Ua-Vsu"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AJE-uB-zfJ">
                                                     <rect key="frame" x="340" y="77" width="67" height="30"/>
                                                     <state key="normal" title="Blog Post">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="blogWebsiteButtonPressed:" destination="3hN-QP-dC2" eventType="touchUpInside" id="1Zk-Ko-TwK"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="|" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vi7-xy-mU8">
                                                     <rect key="frame" x="269" y="81" width="4" height="21"/>

@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class MapPoint;
 
 @interface RestaurantMapTableViewCell : UITableViewCell
-@property (strong, nonatomic) IBOutlet UIView *mapView;
+
+@property (strong, nonatomic) MapPoint *mapPoint;
 
 @end

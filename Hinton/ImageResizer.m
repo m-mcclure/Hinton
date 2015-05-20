@@ -10,7 +10,7 @@
 
 @implementation ImageResizer
 
-+(UIImage *)resizedImageWithImage:(UIImage *)image size:(CGSize)size {
+-(UIImage *)resizedImageWithImage:(UIImage *)image size:(CGSize)size {
   
   UIGraphicsBeginImageContext(size);
   [image drawInRect:CGRectMake(0, 0, size.width, size.height)];

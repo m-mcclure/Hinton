@@ -24,10 +24,11 @@
 
 @end
 
-CLLocationDistance initialMapViewDistance = 5000;
-NSTimeInterval dismissViewAnimationDuration = 0.3;
 
 @implementation ViewController
+
+CLLocationDistance initialMapViewDistance = 5000;
+NSTimeInterval dismissViewAnimationDuration = 0.3;
 
 - (void)viewDidLoad {
   [super viewDidLoad];

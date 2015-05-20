@@ -10,6 +10,6 @@
 
 @interface ImageResizer : NSObject
 
-+(UIImage *)resizedImageWithImage:(UIImage *)image size:(CGSize)size;
+-(UIImage *)resizedImageWithImage:(UIImage *)image size:(CGSize)size;
 
 @end

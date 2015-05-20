@@ -17,13 +17,17 @@
 
 - (void)awakeFromNib {
     // Initialization code
-  self.imageView.image = self.imageToDisplay;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+-(void)setImageToDisplay:(UIImage *)imageToDisplay {
+  _imageToDisplay = imageToDisplay;
+  self.imageView.image = imageToDisplay;
 }
 
 @end

@@ -74,40 +74,80 @@
   NSString *priceRepresentation = [NSString string];
   
   switch (price) {
-    case <#constant#>:
-      <#statements#>
+    case 1:
+      priceRepresentation = @"$";
+      break;
+    case 2:
+      priceRepresentation = @"$$";
+      break;
+    case 3:
+      priceRepresentation = @"$$$";
+      break;
+    case 4:
+      priceRepresentation = @"$$$$";
       break;
       
     default:
+      priceRepresentation = @"Variable Pricing";
       break;
   }
+  
+  self.restaurantPriceLabel.text = priceRepresentation;
 }
 
 -(void)setRestaurantGenre:(NSString *)restaurantGenre {
-  
+  _restaurantGenre = restaurantGenre;
+  self.restaurantGenreLabel.text = restaurantGenre;
 }
 
 -(void)setMainWebsiteURL:(NSURL *)mainWebsiteURL {
-  
+  _mainWebsiteURL = mainWebsiteURL;
 }
 
 -(void)setMenuWebsiteURL:(NSURL *)menuWebsiteURL {
-  
+  _menuWebsiteURL = menuWebsiteURL;
 }
 
 -(void)setBlogWebsiteURL:(NSURL *)blogWebsiteURL {
-  
+  _blogWebsiteURL = blogWebsiteURL;
 }
 
 -(void)setRestaurantPhone:(NSString *)restaurantPhone {
-
+  _restaurantPhone = restaurantPhone;
+  self.restaurantPhoneLabel.text = restaurantPhone;
 }
 
 -(void)setRestaurantAddress:(Address *)restaurantAddress {
+  _restaurantAddress = restaurantAddress;
   
+  NSString *addressString = [NSString string];
+  
+  addressString = [addressString stringByAppendingString:restaurantAddress.streetNumber];
+  addressString = [addressString stringByAppendingString:@" "];
+  addressString = [addressString stringByAppendingString:restaurantAddress.streetName];
+  addressString = [addressString stringByAppendingString:@", "];
+  addressString = [addressString stringByAppendingString:restaurantAddress.city];
+  addressString = [addressString stringByAppendingString:@", "];
+  addressString = [addressString stringByAppendingString:restaurantAddress.state];
+  addressString = [addressString stringByAppendingString:@" "];
+  addressString = [addressString stringByAppendingString:restaurantAddress.zip];
+  
+  self.restaurantAddressLabel.text = addressString;
 }
 
 -(void)setRestaurantHours:(Hours *)restaurantHours {
+  _restaurantHours = restaurantHours;
+#warning Incomplete
+  self.restaurantHoursLabel.text = restaurantHours.mondayHours;
+}
+
+- (IBAction)mainWebsiteButtonPressed:(id)sender {
+  
+}
+- (IBAction)menuWebsiteButtonPressed:(id)sender {
+  
+}
+- (IBAction)blogWebsiteButtonPressed:(id)sender {
   
 }
 

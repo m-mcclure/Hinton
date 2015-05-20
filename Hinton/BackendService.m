@@ -42,4 +42,18 @@ static NSString * const backendURL = @"http://mysterious-castle-8548.herokuapp.c
   return [RestaurantParser restaurantFromJSONData:jsonData];
 }
 
++(void)fetchGenresList:(void(^)(NSArray *genresList, NSError *error))completion {
+  
+#warning Incomplete
+  NSString *genresURL = @"";
+  
+  AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+  [manager GET:genresURL parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    
+  } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    
+  }];
+  
+}
+
 @end
