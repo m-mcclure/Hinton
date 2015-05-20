@@ -21,7 +21,8 @@
 @property (strong, nonatomic) NSString *genre;
 @property (strong, nonatomic) NSString *pricePoint;
 @property (strong, nonatomic) NSArray *recipes;
-@property (strong, nonatomic) NSArray *photos;
+@property (strong, nonatomic) NSArray *menuPhotos;
+@property (strong, nonatomic) NSArray *menuPhotoURLs;
 @property (strong, nonatomic) NSURL *blogURL;
 @property (strong, nonatomic) NSURL *mainURL;
 @property (strong, nonatomic) NSURL *menuURL;
