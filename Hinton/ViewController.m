@@ -13,14 +13,17 @@
 #import "RestaurantMapTableViewCell.h"
 #import "RestaurantImageTableViewCell.h"
 #import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface ViewController () <MKMapViewDelegate, RestaurantDetailDelegate>
+@interface ViewController () <CLLocationManagerDelegate, MKMapViewDelegate, RestaurantDetailDelegate, UISearchBarDelegate, UISearchResultsUpdating>
 
+@property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) IBOutlet UIView *header;
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) IBOutlet UIProgressView *progressBar;
 @property (strong, nonatomic) RestaurantDetailViewController *restaurantDetail;
 @property (strong, nonatomic) NSArray *mapPoints;
+@property (strong, nonatomic) UISearchController *searchController;
 
 @end
 
@@ -35,6 +38,22 @@ NSTimeInterval dismissViewAnimationDuration = 0.3;
   
   self.restaurantDetail.delegate = self;
   [self.progressBar setProgress:0.0 animated:NO];
+  
+  UISearchController *searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+  searchController.searchResultsUpdater = self;
+  searchController.dimsBackgroundDuringPresentation = YES;
+  searchController.searchBar.delegate = self;
+  searchController.searchBar.scopeButtonTitles = @[@"Standard", @"Genre"];
+//  searchController.searchBar.frame = CGRectMake(8, 8, 1000, 1000);
+  [self.mapView addSubview:searchController.searchBar];
+//  [self.mapView bringSubviewToFront:searchController.searchBar];
+  
+  self.locationManager = [[CLLocationManager alloc] init];
+  self.locationManager.delegate = self;
+  if ([CLLocationManager locationServicesEnabled]) {
+    [self.locationManager requestWhenInUseAuthorization];
+    self.mapView.showsUserLocation = YES;
+  }
   
   self.mapView.delegate = self;
 
@@ -102,6 +121,13 @@ NSTimeInterval dismissViewAnimationDuration = 0.3;
   }];
 }
 
+#pragma mark - CLLocationManagerDelegate
+
+-(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
+  self.mapView.showsUserLocation = YES;
+}
+
+
 #pragma mark - Custom Property Getters/Setters
 
 -(RestaurantDetailViewController *)restaurantDetail {
@@ -111,6 +137,7 @@ NSTimeInterval dismissViewAnimationDuration = 0.3;
   _restaurantDetail = [self.storyboard instantiateViewControllerWithIdentifier:@"RestaurantDetailVC"];
   return _restaurantDetail;
 }
+
 
 
 @end
