@@ -15,18 +15,18 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface ViewController () <CLLocationManagerDelegate, MKMapViewDelegate, RestaurantDetailDelegate, UISearchBarDelegate, UISearchResultsUpdating>
+@interface ViewController () <CLLocationManagerDelegate, MKMapViewDelegate, RestaurantDetailDelegate, UISearchBarDelegate>
 
+@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) IBOutlet UIView *header;
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) IBOutlet UIProgressView *progressBar;
 @property (strong, nonatomic) RestaurantDetailViewController *restaurantDetail;
 @property (strong, nonatomic) NSArray *mapPoints;
-@property (strong, nonatomic) UISearchController *searchController;
+//@property (strong, nonatomic) UISearchController *searchController;
 
 @end
-
 
 @implementation ViewController
 
@@ -36,33 +36,44 @@ NSTimeInterval dismissViewAnimationDuration = 0.3;
 - (void)viewDidLoad {
   [super viewDidLoad];
   
+  self.mapView.delegate = self;
   self.restaurantDetail.delegate = self;
   [self.progressBar setProgress:0.0 animated:NO];
   
-  UISearchController *searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
-  searchController.searchResultsUpdater = self;
-  searchController.dimsBackgroundDuringPresentation = YES;
-  searchController.searchBar.delegate = self;
-  searchController.searchBar.scopeButtonTitles = @[@"Standard", @"Genre"];
-//  searchController.searchBar.frame = CGRectMake(8, 8, 1000, 1000);
-  [self.mapView addSubview:searchController.searchBar];
-//  [self.mapView bringSubviewToFront:searchController.searchBar];
+  self.searchBar.delegate = self;
+  self.searchBar.scopeButtonTitles = @[@"Standard", @"Genre"];
+  self.searchBar.showsScopeBar = YES;
+
+//  self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+//  self.searchController.searchResultsUpdater = self;
+//  self.searchController.dimsBackgroundDuringPresentation = NO;
+//  self.searchController.searchBar.delegate = self;
+//  self.searchController.searchBar.scopeButtonTitles = @[@"Standard", @"Genre"];
+//  [self.mapView addSubview:self.searchController.searchBar];
+////  self.definesPresentationContext = YES;
   
   self.locationManager = [[CLLocationManager alloc] init];
   self.locationManager.delegate = self;
+  
   if ([CLLocationManager locationServicesEnabled]) {
+    
     [self.locationManager requestWhenInUseAuthorization];
-    self.mapView.showsUserLocation = YES;
+    
+//    if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedWhenInUse) {
+//      self.mapView.showsUserLocation = YES;
+//      [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(self.locationManager.location.coordinate, initialMapViewDistance, initialMapViewDistance) animated:YES];
+//    } else {
+//      CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(47.622152, -122.312965);
+//      [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(coordinate, initialMapViewDistance, initialMapViewDistance) animated:NO];
+//    }
+    
+  } else {
+
+    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(47.622152, -122.312965);
+    [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(coordinate, initialMapViewDistance, initialMapViewDistance) animated:NO];
   }
   
-  self.mapView.delegate = self;
-
-  MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
-//  MapPoint *mapPoint = self.mapPoints[0];
-  point.coordinate = CLLocationCoordinate2DMake(47.622152, -122.312965);
-  point.title = @"test";
   
-  [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(point.coordinate, initialMapViewDistance, initialMapViewDistance) animated:NO];
   [BackendService fetchMapPointsForArea:CGRectZero completionHandler:^(NSArray *mapPoints, NSError *error) {
     [self.mapView addAnnotations:mapPoints];
   }];
@@ -98,12 +109,8 @@ NSTimeInterval dismissViewAnimationDuration = 0.3;
   [UIView animateWithDuration:dismissViewAnimationDuration delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
     self.restaurantDetail.view.frame = CGRectMake(0, self.mapView.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height - self.header.frame.size.height - [UIApplication sharedApplication].statusBarFrame.size.height);
   } completion:^(BOOL finished) {
-    NSLog(@"tableView height: %f", self.restaurantDetail.view.frame.size.height);
-    NSLog(@"View Controller height: %f", self.view.frame.size.height);
-
 
   }];
-  
 }
 
 #pragma mark - CloseBannerDelegate
@@ -117,7 +124,6 @@ NSTimeInterval dismissViewAnimationDuration = 0.3;
     [self.restaurantDetail.view removeFromSuperview];
     [self.restaurantDetail didMoveToParentViewController:nil];
     [self.restaurantDetail removeFromParentViewController];
-//    self.restaurantDetail = nil;
   }];
 }
 
@@ -125,7 +131,18 @@ NSTimeInterval dismissViewAnimationDuration = 0.3;
 
 -(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
   self.mapView.showsUserLocation = YES;
+  
+  if (status == kCLAuthorizationStatusAuthorizedWhenInUse) {
+    [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(manager.location.coordinate, initialMapViewDistance, initialMapViewDistance) animated:YES];
+  } else {
+    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(47.622152, -122.312965);
+    [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(coordinate, initialMapViewDistance, initialMapViewDistance) animated:NO];
+  }
 }
+
+#pragma mark - UISearchBarDelegate
+
+
 
 
 #pragma mark - Custom Property Getters/Setters
@@ -137,6 +154,13 @@ NSTimeInterval dismissViewAnimationDuration = 0.3;
   _restaurantDetail = [self.storyboard instantiateViewControllerWithIdentifier:@"RestaurantDetailVC"];
   return _restaurantDetail;
 }
+
+#pragma mark - My Methods
+- (IBAction)userLocationButtonPressed:(id)sender {
+    [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(self.locationManager.location.coordinate, initialMapViewDistance, initialMapViewDistance) animated:YES];
+}
+
+
 
 
 

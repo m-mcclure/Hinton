@@ -49,28 +49,64 @@
                                     <constraint firstItem="rLS-Y2-V9V" firstAttribute="top" secondItem="ha0-v2-4lf" secondAttribute="top" constant="8" id="usc-6w-Quo"/>
                                 </constraints>
                             </view>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gqW-np-WuC">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" pitchEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gqW-np-WuC">
                                 <rect key="frame" x="0.0" y="136" width="600" height="464"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NCs-hH-SUo">
+                                <rect key="frame" x="534" y="530" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="Zgf-3u-yhN"/>
+                                    <constraint firstAttribute="height" constant="50" id="eRG-Ue-4rT"/>
+                                </constraints>
+                                <state key="normal" image="user_location_icon">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="userLocationButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xhX-Ji-Wki"/>
+                                </connections>
+                            </button>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="J1f-K0-OuT">
+                                <rect key="frame" x="0.0" y="136" width="600" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="IBd-rL-1Mu"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="J1f-K0-OuT" firstAttribute="top" secondItem="ha0-v2-4lf" secondAttribute="bottom" id="4L2-ob-uMC"/>
                             <constraint firstItem="ha0-v2-4lf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="57w-cF-upr"/>
                             <constraint firstAttribute="trailingMargin" secondItem="gqW-np-WuC" secondAttribute="trailing" constant="-16" id="BIw-Sl-KeG"/>
                             <constraint firstItem="ha0-v2-4lf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="Fs1-9R-qd7"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ha0-v2-4lf" secondAttribute="trailing" constant="-16" id="LTA-XL-wE5"/>
+                            <constraint firstItem="NCs-hH-SUo" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Lif-jP-0HB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="J1f-K0-OuT" secondAttribute="trailing" constant="-16" id="Nq5-px-Op2"/>
                             <constraint firstItem="gqW-np-WuC" firstAttribute="top" secondItem="ha0-v2-4lf" secondAttribute="bottom" id="UmS-H8-mDR"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="NCs-hH-SUo" secondAttribute="bottom" constant="20" id="Wti-9I-7lp"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gqW-np-WuC" secondAttribute="bottom" id="dXh-po-0l7"/>
                             <constraint firstItem="gqW-np-WuC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="hqj-2e-p0H"/>
+                            <constraint firstItem="J1f-K0-OuT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="zcz-eK-XsV"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="header" destination="ha0-v2-4lf" id="Vpg-zS-X1f"/>
                         <outlet property="mapView" destination="gqW-np-WuC" id="wr7-l1-474"/>
                         <outlet property="progressBar" destination="r8e-qf-S4d" id="kcO-uA-bFa"/>
+                        <outlet property="searchBar" destination="J1f-K0-OuT" id="b9x-cc-DRy"/>
+                        <outlet property="searchDisplayController" destination="gkz-I6-RxG" id="LvE-G0-QQC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="gkz-I6-RxG">
+                    <connections>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="dRM-ri-vAj"/>
+                        <outlet property="searchBar" destination="J1f-K0-OuT" id="NAT-ZG-8Rd"/>
+                        <outlet property="searchContentsController" destination="BYZ-38-t0r" id="42C-jw-Wlx"/>
+                        <outlet property="searchResultsDataSource" destination="BYZ-38-t0r" id="Pyo-7R-Prg"/>
+                        <outlet property="searchResultsDelegate" destination="BYZ-38-t0r" id="hXV-fU-lpN"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1107" y="1023"/>
         </scene>
@@ -90,7 +126,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="InfoCell" rowHeight="265" id="3hN-QP-dC2" customClass="RestaurantInfoTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="InfoCell" rowHeight="361" id="3hN-QP-dC2" customClass="RestaurantInfoTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3hN-QP-dC2" id="wTk-Fy-fxe">
@@ -339,5 +375,6 @@
     <resources>
         <image name="close_icon" width="32" height="32"/>
         <image name="hinton_logo_map_header_size" width="74" height="74"/>
+        <image name="user_location_icon" width="128" height="128"/>
     </resources>
 </document>

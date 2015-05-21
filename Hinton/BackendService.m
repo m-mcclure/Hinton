@@ -20,7 +20,7 @@
   
   AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
   [manager GET:fetchAllURLString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-    NSLog(@"Response: %@", responseObject);
+//    NSLog(@"Response: %@", responseObject);
     NSArray *mapPoints = [MapPointParser mapPointsFromJSONDictionary:responseObject];
     completionHandler(mapPoints, nil);
   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -42,6 +42,7 @@
     Restaurant *restaurant = [RestaurantParser restaurantFromJSONDictionary:responseObject];
     completionHandler(restaurant, nil);
   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    NSLog(@"Error: %@", error.localizedDescription);
     completionHandler(nil, error);
   }];
 
@@ -56,6 +57,7 @@
     NSArray *genres = [GenreParser genresFromJSONArray:responseObject];
     completion(genres, nil);
   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    NSLog(@"Error: %@", error.localizedDescription);
     completion(nil, error);
   }];
   
@@ -70,6 +72,7 @@
     NSArray *mapPoints = [MapPointParser mapPointsFromJSONDictionary:responseObject];
     completionHandler(mapPoints, nil);
   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    NSLog(@"Error: %@", error.localizedDescription);
     completionHandler(nil, error);
   }];
 }
