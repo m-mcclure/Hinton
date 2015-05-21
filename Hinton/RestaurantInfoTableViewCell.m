@@ -25,7 +25,7 @@
 
 @property (strong, nonatomic) NSString *restaurantName;
 @property (strong, nonatomic) NSString *restaurantPrice;
-@property (strong, nonatomic) NSString *restaurantGenre;
+@property (strong, nonatomic) NSArray *restaurantGenre;
 @property (strong, nonatomic) NSURL *mainWebsiteURL;
 @property (strong, nonatomic) NSURL *menuWebsiteURL;
 @property (strong, nonatomic) NSURL *blogWebsiteURL;
@@ -53,7 +53,7 @@
   
   self.restaurantName = restaurantToDisplay.name;
   self.restaurantPrice = restaurantToDisplay.pricePoint;
-  self.restaurantGenre = restaurantToDisplay.genre;
+  self.restaurantGenre = restaurantToDisplay.genres;
   self.mainWebsiteURL = restaurantToDisplay.mainURL;
   self.menuWebsiteURL = restaurantToDisplay.menuURL;
   self.blogWebsiteURL = restaurantToDisplay.blogURL;
@@ -95,9 +95,24 @@
   self.restaurantPriceLabel.text = priceRepresentation;
 }
 
--(void)setRestaurantGenre:(NSString *)restaurantGenre {
+-(void)setRestaurantGenre:(NSArray *)restaurantGenre {
   _restaurantGenre = restaurantGenre;
-  self.restaurantGenreLabel.text = restaurantGenre;
+  
+  NSString *genreLabel;
+  
+  for (NSString *genre in restaurantGenre) {
+    if (!genreLabel) {
+      genreLabel = genre;
+    } else {
+      genreLabel = [genreLabel stringByAppendingString:[NSString stringWithFormat:@", %@", genre]];
+    }
+  }
+  
+  if (!genreLabel) {
+    self.restaurantGenreLabel.text = @"Unknown Genre";
+  } else {
+    self.restaurantGenreLabel.text = genreLabel;
+  }
 }
 
 -(void)setMainWebsiteURL:(NSURL *)mainWebsiteURL {
@@ -120,7 +135,7 @@
 -(void)setRestaurantAddress:(Address *)restaurantAddress {
   _restaurantAddress = restaurantAddress;
   
-  NSString *addressString = [NSString string];
+  NSString *addressString = @"";
   
   addressString = [addressString stringByAppendingString:restaurantAddress.streetNumber];
   addressString = [addressString stringByAppendingString:@" "];

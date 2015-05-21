@@ -44,6 +44,9 @@ NSTimeInterval dismissViewAnimationDuration = 0.3;
   point.title = @"test";
   
   [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(point.coordinate, initialMapViewDistance, initialMapViewDistance) animated:NO];
+  [BackendService fetchMapPointsForArea:CGRectZero completionHandler:^(NSArray *mapPoints, NSError *error) {
+    [self.mapView addAnnotations:mapPoints];
+  }];
 }
 
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
@@ -63,14 +66,6 @@ NSTimeInterval dismissViewAnimationDuration = 0.3;
   }
   
   return annoView;
-}
-
--(void)mapViewDidFinishLoadingMap:(MKMapView *)mapView {
-  
-  [BackendService fetchMapPointsForArea:CGRectZero completionHandler:^(NSArray *mapPoints, NSError *error) {
-    [self.mapView addAnnotations:mapPoints];
-  }];
-  
 }
 
 -(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {  
@@ -103,6 +98,7 @@ NSTimeInterval dismissViewAnimationDuration = 0.3;
     [self.restaurantDetail.view removeFromSuperview];
     [self.restaurantDetail didMoveToParentViewController:nil];
     [self.restaurantDetail removeFromParentViewController];
+//    self.restaurantDetail = nil;
   }];
 }
 

@@ -18,17 +18,19 @@
   
   Restaurant *newRestaurant = [[Restaurant alloc] init];
   
-  newRestaurant.restaurantId = jsonDictionary[@"r_id"];
-  newRestaurant.name = jsonDictionary[@"name"];
-  newRestaurant.phone = jsonDictionary[@"phone"];
-  newRestaurant.genre = jsonDictionary[@"genre"];
-  newRestaurant.pricePoint = jsonDictionary[@"price"];
-  newRestaurant.recipes = jsonDictionary[@"menu_item"];
-  newRestaurant.blogURL = [NSURL URLWithString:jsonDictionary[@"blog_link"]];
-  newRestaurant.mainURL = [NSURL URLWithString:jsonDictionary[@"r_site"]];
-  newRestaurant.menuURL = [NSURL URLWithString:jsonDictionary[@"menu_link"]];
+  newRestaurant.restaurantId = jsonDictionary[@"_id"];
+  
+  NSDictionary *restaurantInfo = jsonDictionary[@"restaurant"];
+  newRestaurant.name = restaurantInfo[@"name"];
+  newRestaurant.phone = restaurantInfo[@"phone"];
+  newRestaurant.genres = restaurantInfo[@"genre"];
+  newRestaurant.pricePoint = restaurantInfo[@"price"];
+  newRestaurant.recipes = restaurantInfo[@"menu_item"];
+  newRestaurant.blogURL = [NSURL URLWithString:restaurantInfo[@"blog_link"]];
+  newRestaurant.mainURL = [NSURL URLWithString:restaurantInfo[@"r_site"]];
+  newRestaurant.menuURL = [NSURL URLWithString:restaurantInfo[@"menu_link"]];
 
-  NSDictionary *hoursInfo = jsonDictionary[@"hours"];
+  NSDictionary *hoursInfo = restaurantInfo[@"hours"];
   NSString *monday = hoursInfo[@"mon"];
   NSString *tuesday = hoursInfo[@"tue"];
   NSString *wednesday = hoursInfo[@"wed"];
@@ -39,7 +41,7 @@
   Hours *hours = [[Hours alloc] initWithMonday:monday Tuesday:tuesday Wednesday:wednesday Thursday:thursday Friday:friday Saturday:saturday Sunday:sunday];
   newRestaurant.hours = hours;
   
-  NSDictionary *addressInfo = jsonDictionary[@"address"];
+  NSDictionary *addressInfo = restaurantInfo[@"address"];
   NSString *addressNumber = addressInfo[@"number"];
   NSString *addressStreet = addressInfo[@"street"];
   NSString *addressCity = addressInfo[@"city"];
@@ -48,7 +50,7 @@
   Address *address = [[Address alloc] initWithStreetNumber:addressNumber streetName:addressStreet city:addressCity state:addressState zip:addressZip];
   newRestaurant.address = address;
   
-  NSArray *menuPhotos = jsonDictionary[@"photos"];
+  NSArray *menuPhotos = restaurantInfo[@"photos"];
   NSMutableArray *newPhotos = [NSMutableArray array];
   for (NSDictionary *photoInfo in menuPhotos) {
     NSString *photoID = photoInfo[@"id"];

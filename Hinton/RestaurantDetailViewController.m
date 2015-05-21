@@ -32,11 +32,8 @@
   
   self.imageFetcher = [[ImageFetcher alloc] init];
   self.cellImageSize = CGSizeMake(600, 400);
+  self.photoURLs = [[NSArray alloc] init];
   
-  self.tableView.delegate = self;
-  self.tableView.dataSource = self;
-  
-//  self.restaurantToDisplay = [BackendService restaurantForID:self.annotation.restaurantId];
 }
 
 #pragma mark <UICollectionViewDataSource>
@@ -115,6 +112,21 @@
   
   return imageCell;
   
+}
+
+-(void)setAnnotation:(MapPoint *)annotation {
+  _annotation = annotation;
+  
+  [BackendService fetchRestaurantForID:annotation.restaurantId completionHandler:^(Restaurant *restaurant, NSError *error) {
+    if (restaurant) {
+      self.restaurantToDisplay = restaurant;
+      self.tableView.delegate = self;
+      self.tableView.dataSource = self;
+      [self.tableView reloadData];
+    } else {
+      NSLog(@"Error: %@", error);
+    }
+  }];
 }
 
 

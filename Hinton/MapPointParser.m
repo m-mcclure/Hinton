@@ -20,7 +20,7 @@
     NSDictionary *mapInfo = mapPointInfo[@"map"];
     NSString *caption = mapInfo[@"caption"];
     
-    NSDictionary *locInfo = mapPointInfo[@"loc"];
+    NSDictionary *locInfo = mapInfo[@"loc"];
     NSNumber *lat = locInfo[@"lat"];
     NSNumber *lon = locInfo[@"long"];
     
