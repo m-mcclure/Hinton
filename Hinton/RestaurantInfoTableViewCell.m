@@ -21,6 +21,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *restaurantPhoneLabel;
 @property (strong, nonatomic) IBOutlet UILabel *restaurantAddressLabel;
 @property (strong, nonatomic) IBOutlet UILabel *restaurantHoursLabel;
+@property (strong, nonatomic) IBOutlet UILabel *recommendedItemLabel;
 
 @property (strong, nonatomic) NSString *restaurantName;
 @property (strong, nonatomic) NSString *restaurantPrice;
@@ -38,6 +39,13 @@
 
 - (void)awakeFromNib {
     // Initialization code
+  
+  self.restaurantNameLabel.text = nil;
+  self.restaurantGenreLabel.text = nil;
+  self.restaurantPhoneLabel.text = nil;
+  self.restaurantAddressLabel.text = nil;
+  self.restaurantHoursLabel.text = nil;
+  self.recommendedItemLabel.text = nil;
 }
 
 
@@ -61,8 +69,11 @@
   self.restaurantHours = restaurantToDisplay.hours;
   
   self.restaurantGenreLabel.text = [NSString stringWithFormat:@"%@, %@", [self constructGenreLabelForGenres:self.restaurantGenre], self.restaurantPrice];
+  self.recommendedItemLabel.text = [self constructRecommendedItemsLabelForItems:restaurantToDisplay.recipes];
   
   [self setupWebsiteButtons];
+  
+  
 }
 
 -(void)setRestaurantName:(NSString *)restaurantName {
@@ -139,7 +150,7 @@
 -(void)setRestaurantHours:(Hours *)restaurantHours {
   _restaurantHours = restaurantHours;
 #warning Incomplete
-  self.restaurantHoursLabel.text = restaurantHours.mondayHours;
+  self.restaurantHoursLabel.text = restaurantHours.wednesdayHours;
 }
 
 - (IBAction)mainWebsiteButtonPressed:(id)sender {
@@ -157,7 +168,7 @@
   NSString *genreLabel;
   
   for (NSString *genre in genres) {
-    if (!genreLabel) {
+    if (!genreLabel || [genre isEqualToString:@""]) {
       genreLabel = genre;
     } else {
       genreLabel = [genreLabel stringByAppendingString:[NSString stringWithFormat:@", %@", genre]];
@@ -168,6 +179,27 @@
     return @"Unknown Genre";
   } else {
     return genreLabel;
+  }
+}
+
+-(NSString *)constructRecommendedItemsLabelForItems:(NSArray *)menuItems {
+  
+  NSString *itemsLabel;
+  
+  for (NSString *item in menuItems) {
+    if (!itemsLabel) {
+      if (![item isEqualToString:@""]) {
+        itemsLabel = item;
+      }
+    } else {
+      itemsLabel = [itemsLabel stringByAppendingString:[NSString stringWithFormat:@", %@", item]];
+    }
+  }
+  
+  if (!itemsLabel) {
+    return @"Recommended menu items coming soon!";
+  } else {
+    return itemsLabel;
   }
 }
 

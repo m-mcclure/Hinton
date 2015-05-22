@@ -32,6 +32,7 @@
 -(void)setMapPoint:(MapPoint *)mapPoint {
   CLLocationManager *manager = [[CLLocationManager alloc] init];
   
+  [self.mapView removeAnnotations:self.mapView.annotations];
   self.mapView.showsUserLocation = YES;
   [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(mapPoint.coordinate, 1000, 1000)];
   [self.mapView addAnnotation:mapPoint];

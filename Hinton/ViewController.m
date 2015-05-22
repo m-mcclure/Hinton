@@ -33,7 +33,7 @@
 
 @implementation ViewController
 
-CLLocationDistance initialMapViewDistance = 5000;
+CLLocationDistance initialMapViewDistance = 4000;
 NSTimeInterval dismissViewAnimationDuration = 0.3;
 
 - (void)viewDidLoad {
@@ -175,15 +175,6 @@ NSTimeInterval dismissViewAnimationDuration = 0.3;
 
 #pragma mark - Custom Property Getters/Setters
 
--(RestaurantDetailViewController *)restaurantDetail {
-  if (_restaurantDetail) {
-    return _restaurantDetail;
-  }
-  _restaurantDetail = [self.storyboard instantiateViewControllerWithIdentifier:@"RestaurantDetailVC"];
-  _restaurantDetail.delegate = self;
-  return _restaurantDetail;
-}
-
 -(void)setCurrentMapPoints:(NSArray *)currentMapPoints {
   [self.mapView removeAnnotations:_currentMapPoints];
   _currentMapPoints = currentMapPoints;
@@ -199,7 +190,7 @@ NSTimeInterval dismissViewAnimationDuration = 0.3;
 
 -(void)dismissSearchTable {
   [UIView animateWithDuration:dismissViewAnimationDuration delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-    self.searchTableView.view.center = CGPointMake(self.searchTableView.view.center.x, 800);
+    self.searchTableView.view.center = CGPointMake(self.searchTableView.view.center.x, self.searchTableView.view.center.y + self.searchTableView.view.frame.size.height);
   } completion:^(BOOL finished) {
     self.isShowingSearchTableView = NO;
   }];
@@ -222,22 +213,27 @@ NSTimeInterval dismissViewAnimationDuration = 0.3;
     [self.restaurantDetail.view removeFromSuperview];
     [self.restaurantDetail didMoveToParentViewController:nil];
     [self.restaurantDetail removeFromParentViewController];
+    self.restaurantDetail = nil;
   }];
 }
 
 -(void)presentDetailViewWithAnnotation:(id<MKAnnotation>)annotation {
-  
+  self.restaurantDetail = [self.storyboard instantiateViewControllerWithIdentifier:@"RestaurantDetailVC"];
+  self.restaurantDetail.delegate = self;
   [self.view addSubview:self.restaurantDetail.view];
   [self.restaurantDetail didMoveToParentViewController:self];
   [self addChildViewController:self.restaurantDetail];
   [self.view bringSubviewToFront:self.restaurantDetail.view];
+  CGRect bounds = self.restaurantDetail.view.bounds;
   self.restaurantDetail.view.frame = CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, self.view.frame.size.height - self.header.frame.size.height - [UIApplication sharedApplication].statusBarFrame.size.height);
+//  self.restaurantDetail.view.bounds = bounds;
   self.restaurantDetail.annotation = annotation;
   
   [UIView animateWithDuration:dismissViewAnimationDuration delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
     self.restaurantDetail.view.frame = CGRectMake(0, self.mapView.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height - self.header.frame.size.height - [UIApplication sharedApplication].statusBarFrame.size.height);
+//    self.restaurantDetail.view.bounds = bounds;
   } completion:^(BOOL finished) {
-    
+    [self.restaurantDetail.view setNeedsDisplay];
   }];
 
 //  MapPoint *mapPoint = (MapPoint *)annotation;

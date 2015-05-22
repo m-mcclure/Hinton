@@ -33,6 +33,7 @@
   self.imageFetcher = [[ImageFetcher alloc] init];
   self.cellImageSize = CGSizeMake(600, 400);
   self.photoURLs = [[NSArray alloc] init];
+//  self.tableView.rowHeight = UITableViewAutomaticDimension;
   
 }
 
