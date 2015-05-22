@@ -7,10 +7,13 @@
 //
 
 #import "RestaurantMapTableViewCell.h"
+#import "MapPoint.h"
+#import <CoreLocation/CoreLocation.h>
+#import <MapKit/MapKit.h>
 
 @interface RestaurantMapTableViewCell ()
 
-@property (strong, nonatomic) IBOutlet UIView *mapView;
+@property (strong, nonatomic) IBOutlet MKMapView *mapView;
 
 @end
 
@@ -27,7 +30,25 @@
 }
 
 -(void)setMapPoint:(MapPoint *)mapPoint {
+  CLLocationManager *manager = [[CLLocationManager alloc] init];
   
+  [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(manager.location.coordinate, 1000, 1000)];
+  
+  MKPlacemark *destinationPlacemark = [[MKPlacemark alloc] initWithCoordinate:self.mapPoint.coordinate addressDictionary:nil];
+  
+  MKMapItem *userLocMapItem = [MKMapItem mapItemForCurrentLocation];
+  MKMapItem *destinationLocMapItem = [[MKMapItem alloc] initWithPlacemark:destinationPlacemark];
+  
+  MKDirectionsRequest *request = [[MKDirectionsRequest alloc] init];
+  request.source = userLocMapItem;
+  request.destination = destinationLocMapItem;
+  
+  MKDirections *direction = [[MKDirections alloc] initWithRequest:request];
+  [direction calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse *response, NSError *error) {
+    
+    
+    
+  }];
 }
 
 @end

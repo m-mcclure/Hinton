@@ -65,35 +65,24 @@
                                     <action selector="userLocationButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xhX-Ji-Wki"/>
                                 </connections>
                             </button>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="J1f-K0-OuT">
-                                <rect key="frame" x="0.0" y="136" width="600" height="44"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="IBd-rL-1Mu"/>
-                                </connections>
-                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="J1f-K0-OuT" firstAttribute="top" secondItem="ha0-v2-4lf" secondAttribute="bottom" id="4L2-ob-uMC"/>
                             <constraint firstItem="ha0-v2-4lf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="57w-cF-upr"/>
                             <constraint firstAttribute="trailingMargin" secondItem="gqW-np-WuC" secondAttribute="trailing" constant="-16" id="BIw-Sl-KeG"/>
                             <constraint firstItem="ha0-v2-4lf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="Fs1-9R-qd7"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ha0-v2-4lf" secondAttribute="trailing" constant="-16" id="LTA-XL-wE5"/>
                             <constraint firstItem="NCs-hH-SUo" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Lif-jP-0HB"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="J1f-K0-OuT" secondAttribute="trailing" constant="-16" id="Nq5-px-Op2"/>
                             <constraint firstItem="gqW-np-WuC" firstAttribute="top" secondItem="ha0-v2-4lf" secondAttribute="bottom" id="UmS-H8-mDR"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="NCs-hH-SUo" secondAttribute="bottom" constant="20" id="Wti-9I-7lp"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gqW-np-WuC" secondAttribute="bottom" id="dXh-po-0l7"/>
                             <constraint firstItem="gqW-np-WuC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="hqj-2e-p0H"/>
-                            <constraint firstItem="J1f-K0-OuT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="zcz-eK-XsV"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="header" destination="ha0-v2-4lf" id="Vpg-zS-X1f"/>
                         <outlet property="mapView" destination="gqW-np-WuC" id="wr7-l1-474"/>
                         <outlet property="progressBar" destination="r8e-qf-S4d" id="kcO-uA-bFa"/>
-                        <outlet property="searchBar" destination="J1f-K0-OuT" id="b9x-cc-DRy"/>
                         <outlet property="searchDisplayController" destination="gkz-I6-RxG" id="LvE-G0-QQC"/>
                     </connections>
                 </viewController>
@@ -101,7 +90,6 @@
                 <searchDisplayController id="gkz-I6-RxG">
                     <connections>
                         <outlet property="delegate" destination="BYZ-38-t0r" id="dRM-ri-vAj"/>
-                        <outlet property="searchBar" destination="J1f-K0-OuT" id="NAT-ZG-8Rd"/>
                         <outlet property="searchContentsController" destination="BYZ-38-t0r" id="42C-jw-Wlx"/>
                         <outlet property="searchResultsDataSource" destination="BYZ-38-t0r" id="Pyo-7R-Prg"/>
                         <outlet property="searchResultsDelegate" destination="BYZ-38-t0r" id="hXV-fU-lpN"/>
@@ -303,7 +291,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="mapView" destination="zOq-wo-wDb" id="oZI-9O-gcS"/>
+                                            <outlet property="mapView" destination="d0z-ed-kQy" id="5dQ-74-avj"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImageCell" id="cK6-pX-77w" customClass="RestaurantImageTableViewCell">
