@@ -55,7 +55,6 @@ NSTimeInterval dismissViewAnimationDuration = 0.3;
   self.isShowingSearchTableView = NO;
   
   self.mapView.delegate = self;
-  self.restaurantDetail.delegate = self;
   [self.progressBar setProgress:0.0 animated:NO];
   
   self.locationManager = [[CLLocationManager alloc] init];
@@ -107,32 +106,13 @@ NSTimeInterval dismissViewAnimationDuration = 0.3;
 -(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {  
   [self.searchController setActive:NO];
   
-  [self.view addSubview:self.restaurantDetail.view];
-  [self.restaurantDetail didMoveToParentViewController:self];
-  [self addChildViewController:self.restaurantDetail];
-  [self.view bringSubviewToFront:self.restaurantDetail.view];
-  self.restaurantDetail.view.frame = CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, self.view.frame.size.height - self.header.frame.size.height - [UIApplication sharedApplication].statusBarFrame.size.height);
-  self.restaurantDetail.annotation = view.annotation;
-  
-  [UIView animateWithDuration:dismissViewAnimationDuration delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-    self.restaurantDetail.view.frame = CGRectMake(0, self.mapView.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height - self.header.frame.size.height - [UIApplication sharedApplication].statusBarFrame.size.height);
-  } completion:^(BOOL finished) {
-
-  }];
+  [self presentDetailViewWithAnnotation:view.annotation];
 }
 
 #pragma mark - CloseBannerDelegate
 
 -(void)userDidTapCloseButton {
-  [UIView animateWithDuration:dismissViewAnimationDuration delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
-    
-  self.restaurantDetail.view.frame = CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, self.view.frame.size.height - self.header.frame.size.height);
-  
-  } completion:^(BOOL finished) {
-    [self.restaurantDetail.view removeFromSuperview];
-    [self.restaurantDetail didMoveToParentViewController:nil];
-    [self.restaurantDetail removeFromParentViewController];
-  }];
+  [self dismissDetailView];
 }
 
 #pragma mark - CLLocationManagerDelegate
@@ -201,6 +181,7 @@ NSTimeInterval dismissViewAnimationDuration = 0.3;
     return _restaurantDetail;
   }
   _restaurantDetail = [self.storyboard instantiateViewControllerWithIdentifier:@"RestaurantDetailVC"];
+  _restaurantDetail.delegate = self;
   return _restaurantDetail;
 }
 
@@ -230,6 +211,34 @@ NSTimeInterval dismissViewAnimationDuration = 0.3;
     self.searchTableView.view.center = CGPointMake(self.view.frame.size.width/2, self.mapView.frame.origin.y + self.searchTableView.view.frame.size.height/2 + self.searchController.searchBar.frame.size.height);
   } completion:^(BOOL finished) {
     self.isShowingSearchTableView = YES;
+  }];
+}
+
+-(void)dismissDetailView {
+  [UIView animateWithDuration:dismissViewAnimationDuration delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
+    
+    self.restaurantDetail.view.frame = CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, self.view.frame.size.height - self.header.frame.size.height);
+    
+  } completion:^(BOOL finished) {
+    [self.restaurantDetail.view removeFromSuperview];
+    [self.restaurantDetail didMoveToParentViewController:nil];
+    [self.restaurantDetail removeFromParentViewController];
+  }];
+}
+
+-(void)presentDetailViewWithAnnotation:(id<MKAnnotation>)annotation {
+  
+  [self.view addSubview:self.restaurantDetail.view];
+  [self.restaurantDetail didMoveToParentViewController:self];
+  [self addChildViewController:self.restaurantDetail];
+  [self.view bringSubviewToFront:self.restaurantDetail.view];
+  self.restaurantDetail.view.frame = CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, self.view.frame.size.height - self.header.frame.size.height - [UIApplication sharedApplication].statusBarFrame.size.height);
+  self.restaurantDetail.annotation = annotation;
+  
+  [UIView animateWithDuration:dismissViewAnimationDuration delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+    self.restaurantDetail.view.frame = CGRectMake(0, self.mapView.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height - self.header.frame.size.height - [UIApplication sharedApplication].statusBarFrame.size.height);
+  } completion:^(BOOL finished) {
+    
   }];
 }
 
