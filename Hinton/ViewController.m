@@ -60,13 +60,12 @@ NSTimeInterval dismissViewAnimationDuration = 0.3;
   self.locationManager = [[CLLocationManager alloc] init];
   self.locationManager.delegate = self;
   
+  CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(47.622152, -122.312965);
+  [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(coordinate, initialMapViewDistance, initialMapViewDistance) animated:NO];
+  
   if ([CLLocationManager locationServicesEnabled]) {
     [self.locationManager requestWhenInUseAuthorization];
-  } else {
-    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(47.622152, -122.312965);
-    [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(coordinate, initialMapViewDistance, initialMapViewDistance) animated:NO];
   }
-  
   
   [BackendService fetchMapPointsForArea:CGRectZero completionHandler:^(NSArray *mapPoints, NSError *error) {
     if (!error) {
@@ -240,6 +239,31 @@ NSTimeInterval dismissViewAnimationDuration = 0.3;
   } completion:^(BOOL finished) {
     
   }];
+
+//  MapPoint *mapPoint = (MapPoint *)annotation;
+//  [annotation coordinate];
+//  
+//  [self.view addSubview:self.restaurantDetail.view];
+//  [self.restaurantDetail didMoveToParentViewController:self];
+//  [self addChildViewController:self.restaurantDetail];
+//  [self.view bringSubviewToFront:self.restaurantDetail.view];
+//  
+//  CGPoint annotationCGPoint = [self.mapView convertCoordinate:[annotation coordinate] toPointToView:self.mapView];
+//  
+//  
+//  
+//  
+//  self.restaurantDetail.view.frame = CGRectMake(annotationCGPoint.x, annotationCGPoint.y, 0, 0);
+//  self.restaurantDetail.annotation = mapPoint;
+//  
+//  [UIView animateWithDuration:dismissViewAnimationDuration delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+//    self.restaurantDetail.view.frame = CGRectMake(0, self.mapView.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height - self.header.frame.size.height - [UIApplication sharedApplication].statusBarFrame.size.height);
+//  } completion:^(BOOL finished) {
+//    
+//  }];
+  
+
+
 }
 
 

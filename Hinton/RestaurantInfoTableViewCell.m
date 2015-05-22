@@ -14,7 +14,6 @@
 @interface RestaurantInfoTableViewCell ()
 
 @property (strong, nonatomic) IBOutlet UILabel *restaurantNameLabel;
-@property (strong, nonatomic) IBOutlet UILabel *restaurantPriceLabel;
 @property (strong, nonatomic) IBOutlet UILabel *restaurantGenreLabel;
 @property (strong, nonatomic) IBOutlet UIButton *mainWebsiteButton;
 @property (strong, nonatomic) IBOutlet UIButton *menuWebsiteButton;
@@ -60,6 +59,10 @@
   self.restaurantPhone = restaurantToDisplay.phone;
   self.restaurantAddress = restaurantToDisplay.address;
   self.restaurantHours = restaurantToDisplay.hours;
+  
+  self.restaurantGenreLabel.text = [NSString stringWithFormat:@"%@, %@", [self constructGenreLabelForGenres:self.restaurantGenre], self.restaurantPrice];
+  
+  [self setupWebsiteButtons];
 }
 
 -(void)setRestaurantName:(NSString *)restaurantName {
@@ -68,7 +71,6 @@
 }
 
 -(void)setRestaurantPrice:(NSString *)restaurantPrice {
-  _restaurantPrice = restaurantPrice;
   
   NSInteger price = restaurantPrice.integerValue;
   NSString *priceRepresentation = [NSString string];
@@ -92,27 +94,11 @@
       break;
   }
   
-  self.restaurantPriceLabel.text = priceRepresentation;
+  _restaurantPrice = priceRepresentation;
 }
 
 -(void)setRestaurantGenre:(NSArray *)restaurantGenre {
   _restaurantGenre = restaurantGenre;
-  
-  NSString *genreLabel;
-  
-  for (NSString *genre in restaurantGenre) {
-    if (!genreLabel) {
-      genreLabel = genre;
-    } else {
-      genreLabel = [genreLabel stringByAppendingString:[NSString stringWithFormat:@", %@", genre]];
-    }
-  }
-  
-  if (!genreLabel) {
-    self.restaurantGenreLabel.text = @"Unknown Genre";
-  } else {
-    self.restaurantGenreLabel.text = genreLabel;
-  }
 }
 
 -(void)setMainWebsiteURL:(NSURL *)mainWebsiteURL {
@@ -164,6 +150,45 @@
 }
 - (IBAction)blogWebsiteButtonPressed:(id)sender {
   [[UIApplication sharedApplication] openURL:self.restaurantToDisplay.blogURL];
+}
+
+-(NSString *)constructGenreLabelForGenres:(NSArray *)genres {
+  
+  NSString *genreLabel;
+  
+  for (NSString *genre in genres) {
+    if (!genreLabel) {
+      genreLabel = genre;
+    } else {
+      genreLabel = [genreLabel stringByAppendingString:[NSString stringWithFormat:@", %@", genre]];
+    }
+  }
+  
+  if (!genreLabel) {
+    return @"Unknown Genre";
+  } else {
+    return genreLabel;
+  }
+}
+
+-(void)setupWebsiteButtons {
+  if ([self.menuWebsiteURL.absoluteString isEqualToString:@""] || !self.menuWebsiteURL) {
+    self.menuWebsiteButton.enabled = NO;
+  } else {
+    self.menuWebsiteButton.enabled = YES;
+  }
+  
+  if ([self.mainWebsiteURL.absoluteString isEqualToString:@""] || !self.mainWebsiteURL) {
+    self.mainWebsiteButton.enabled = NO;
+  } else {
+    self.mainWebsiteButton.enabled = YES;
+  }
+  
+  if ([self.blogWebsiteURL.absoluteString isEqualToString:@""] || !self.blogWebsiteURL) {
+    self.blogWebsiteButton.enabled = NO;
+  } else {
+    self.blogWebsiteButton.enabled = YES;
+  }
 }
 
 @end
