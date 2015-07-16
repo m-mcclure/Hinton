@@ -21,23 +21,20 @@
 
 - (void)awakeFromNib {
     // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+  
+  self.selectionStyle = UITableViewCellSelectionStyleNone;
+  self.mapView.delegate = self;
 }
 
 -(void)setMapPoint:(MapPoint *)mapPoint {
-  CLLocationManager *manager = [[CLLocationManager alloc] init];
   
   [self.mapView removeAnnotations:self.mapView.annotations];
   self.mapView.showsUserLocation = YES;
   [self.mapView setRegion:MKCoordinateRegionMakeWithDistance(mapPoint.coordinate, 1000, 1000)];
   [self.mapView addAnnotation:mapPoint];
+  self.mapView.scrollEnabled = NO;
   
-  MKPlacemark *destinationPlacemark = [[MKPlacemark alloc] initWithCoordinate:self.mapPoint.coordinate addressDictionary:@{}];
+  MKPlacemark *destinationPlacemark = [[MKPlacemark alloc] initWithCoordinate:mapPoint.coordinate addressDictionary:@{}];
   
   MKMapItem *userLocMapItem = [MKMapItem mapItemForCurrentLocation];
 //  MKMapItem *userLocMapItem = [[MKMapItem alloc] initWithPlacemark:[[MKPlacemark alloc] initWithCoordinate:manager.location.coordinate addressDictionary:nil]];
@@ -47,6 +44,7 @@
   MKDirectionsRequest *request = [[MKDirectionsRequest alloc] init];
   request.source = userLocMapItem;
   request.destination = destinationLocMapItem;
+  request.transportType = MKDirectionsTransportTypeAutomobile;
   
   MKDirections *direction = [[MKDirections alloc] initWithRequest:request];
   
@@ -54,7 +52,7 @@
     [direction calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse *response, NSError *error) {
       
       if (!error) {
-        NSLog(@"MKDirResp: %@", response);
+//        NSLog(@"MKDirResp: %@", response);
         MKRoute *route = response.routes.firstObject;
         MKPolyline *routePolyline = route.polyline;
         [self.mapView addOverlay:routePolyline];
@@ -68,12 +66,10 @@
 
 -(MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay {
   MKPolylineRenderer *renderer = [[MKPolylineRenderer alloc] initWithPolyline:overlay];
+  renderer.strokeColor = [[UIColor blueColor] colorWithAlphaComponent:0.5];
+  renderer.lineWidth = 10;
+  
   return renderer;
-}
-
--(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
-  MKAnnotationView *annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"Point"];
-  return annotationView;
 }
 
 @end

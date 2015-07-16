@@ -22,6 +22,8 @@
 @property (strong, nonatomic) IBOutlet UIView *header;
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) IBOutlet UIProgressView *progressBar;
+@property (strong, nonatomic) IBOutlet UIButton *userLocationButton;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @property (strong, nonatomic) RestaurantDetailViewController *restaurantDetail;
 @property (strong, nonatomic) NSArray *allMapPoints;
 @property (strong, nonatomic) NSArray *currentMapPoints;
@@ -34,6 +36,8 @@
 @implementation ViewController
 
 CLLocationDistance initialMapViewDistance = 4000;
+NSTimeInterval mapDimDuration = 0.1;
+float mapDimAlpha = 0.3;
 NSTimeInterval dismissViewAnimationDuration = 0.3;
 
 - (void)viewDidLoad {
@@ -44,6 +48,7 @@ NSTimeInterval dismissViewAnimationDuration = 0.3;
   self.searchController.dimsBackgroundDuringPresentation = NO;
   self.searchController.searchBar.delegate = self;
   self.searchController.searchBar.scopeButtonTitles = @[@"Address", @"Genre"];
+  self.searchController.view.tintColor = [UIColor darkGrayColor];
   [self.mapView addSubview:self.searchController.searchBar];
   
   self.searchTableView = [[SearchTableViewController alloc] init];
@@ -55,6 +60,8 @@ NSTimeInterval dismissViewAnimationDuration = 0.3;
   self.isShowingSearchTableView = NO;
   
   self.mapView.delegate = self;
+  self.spinner.color = [UIColor darkGrayColor];
+  [self enterWaitMode];
   [self.progressBar setProgress:0.0 animated:NO];
   
   self.locationManager = [[CLLocationManager alloc] init];
@@ -67,6 +74,8 @@ NSTimeInterval dismissViewAnimationDuration = 0.3;
     [self.locationManager requestWhenInUseAuthorization];
   }
   
+  [self enterWaitMode];
+  
   [BackendService fetchMapPointsForArea:CGRectZero completionHandler:^(NSArray *mapPoints, NSError *error) {
     if (!error) {
       self.allMapPoints = mapPoints;
@@ -74,6 +83,8 @@ NSTimeInterval dismissViewAnimationDuration = 0.3;
     } else {
       NSLog(@"Error: %@", error.localizedDescription);
     }
+    
+    [self exitWaitMode];
     
   }];
 }
@@ -127,6 +138,10 @@ NSTimeInterval dismissViewAnimationDuration = 0.3;
   }
 }
 
+-(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation {
+  NSLog(@"UserLocation: %@", userLocation);
+}
+
 #pragma mark - UISearchBarDelegate
 
 -(void)searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope {
@@ -167,8 +182,11 @@ NSTimeInterval dismissViewAnimationDuration = 0.3;
   [self.searchController setActive:NO];
   self.searchController.searchBar.text = genre;
   
+  [self enterWaitMode];
+  
   [BackendService fetchMapPointsForGenre:genre completionHandler:^(NSArray *mapPoints, NSError *error) {
     self.currentMapPoints = mapPoints;
+    [self exitWaitMode];
   }];
 }
 
@@ -224,9 +242,7 @@ NSTimeInterval dismissViewAnimationDuration = 0.3;
   [self.restaurantDetail didMoveToParentViewController:self];
   [self addChildViewController:self.restaurantDetail];
   [self.view bringSubviewToFront:self.restaurantDetail.view];
-  CGRect bounds = self.restaurantDetail.view.bounds;
   self.restaurantDetail.view.frame = CGRectMake(0, self.view.frame.size.height, self.view.frame.size.width, self.view.frame.size.height - self.header.frame.size.height - [UIApplication sharedApplication].statusBarFrame.size.height);
-//  self.restaurantDetail.view.bounds = bounds;
   self.restaurantDetail.annotation = annotation;
   
   [UIView animateWithDuration:dismissViewAnimationDuration delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
@@ -261,6 +277,31 @@ NSTimeInterval dismissViewAnimationDuration = 0.3;
 
 
 }
+
+-(void)enterWaitMode {
+  
+  [UIView animateWithDuration:mapDimDuration animations:^{
+    self.mapView.alpha = mapDimAlpha;
+    self.mapView.userInteractionEnabled = NO;
+    self.userLocationButton.enabled = NO;
+  } completion:^(BOOL finished) {
+    [self.spinner startAnimating];
+  }];
+  
+}
+
+-(void)exitWaitMode {
+  
+  [UIView animateWithDuration:mapDimDuration animations:^{
+    self.mapView.alpha = 1.0;
+    self.mapView.userInteractionEnabled = YES;
+    self.userLocationButton.enabled = YES;
+  } completion:^(BOOL finished) {
+    [self.spinner stopAnimating];
+  }];
+  
+}
+
 
 
 

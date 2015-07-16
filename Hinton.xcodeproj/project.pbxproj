@@ -34,6 +34,8 @@
 		ADEBD9AA1B0A6E32009418BD /* MenuItemPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = ADEBD9A91B0A6E32009418BD /* MenuItemPhoto.m */; };
 		ADEBD9AD1B0A72AC009418BD /* RestaurantParser.m in Sources */ = {isa = PBXBuildFile; fileRef = ADEBD9AC1B0A72AC009418BD /* RestaurantParser.m */; };
 		ADF4F98A1B0E8A2900124610 /* SearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF4F9891B0E8A2900124610 /* SearchTableViewController.m */; };
+		ADF4F98C1B0F932000124610 /* food_2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = ADF4F98B1B0F932000124610 /* food_2.jpeg */; };
+		ADF4F98E1B0F932900124610 /* food_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ADF4F98D1B0F932900124610 /* food_1.jpg */; };
 		E39936FD157F7F4F6D802B65 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16ADD4EA948B69DEA7CF5958 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +100,8 @@
 		ADEBD9AC1B0A72AC009418BD /* RestaurantParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantParser.m; sourceTree = "<group>"; };
 		ADF4F9881B0E8A2900124610 /* SearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTableViewController.h; sourceTree = "<group>"; };
 		ADF4F9891B0E8A2900124610 /* SearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewController.m; sourceTree = "<group>"; };
+		ADF4F98B1B0F932000124610 /* food_2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = food_2.jpeg; sourceTree = "<group>"; };
+		ADF4F98D1B0F932900124610 /* food_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = food_1.jpg; sourceTree = "<group>"; };
 		EE9802A64B9D26DA9D4DEFE0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		F4094DA743A8C4342F279D30 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -146,6 +150,8 @@
 		AD8976D01B0A8D5D00564BC4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				ADF4F98D1B0F932900124610 /* food_1.jpg */,
+				ADF4F98B1B0F932000124610 /* food_2.jpeg */,
 				AD8976EF1B0BEFC200564BC4 /* RestaurantInfoTableViewCell.h */,
 				AD8976F01B0BEFC200564BC4 /* RestaurantInfoTableViewCell.m */,
 				AD8976F21B0BFC9D00564BC4 /* RestaurantMapTableViewCell.h */,
@@ -343,8 +349,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADF4F98C1B0F932000124610 /* food_2.jpeg in Resources */,
 				AD8976D21B0A911600564BC4 /* sample_restaurant_json.json in Resources */,
 				AD8976D41B0A917E00564BC4 /* sample_map_point_json.json in Resources */,
+				ADF4F98E1B0F932900124610 /* food_1.jpg in Resources */,
 				ADEBD9641B0A5227009418BD /* Main.storyboard in Resources */,
 				ADEBD9691B0A5227009418BD /* LaunchScreen.xib in Resources */,
 				ADEBD9661B0A5227009418BD /* Images.xcassets in Resources */,

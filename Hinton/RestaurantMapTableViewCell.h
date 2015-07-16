@@ -11,6 +11,6 @@
 
 @interface RestaurantMapTableViewCell : UITableViewCell
 
-@property (strong, nonatomic) MapPoint *mapPoint;
+-(void)setMapPoint:(MapPoint *)mapPoint;
 
 @end

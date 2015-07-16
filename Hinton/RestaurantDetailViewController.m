@@ -17,7 +17,7 @@
 
 @interface RestaurantDetailViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) NSArray *photoURLs;
+@property (strong, nonatomic) NSArray *photos;
 @property (strong, nonatomic) ImageFetcher *imageFetcher;
 @property (nonatomic) CGSize cellImageSize;
 
@@ -28,11 +28,12 @@
 @implementation RestaurantDetailViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
+  [super viewDidLoad];
   
   self.imageFetcher = [[ImageFetcher alloc] init];
   self.cellImageSize = CGSizeMake(600, 400);
-  self.photoURLs = [[NSArray alloc] init];
+  self.view.tintColor = [UIColor darkGrayColor];
+//  self.photos = @[[UIImage imageNamed:@"food_1.jpg"], [UIImage imageNamed:@"food_2.jpeg"]];
 //  self.tableView.rowHeight = UITableViewAutomaticDimension;
   
 }
@@ -83,7 +84,7 @@
 #pragma mark - Custom Methods
 
 -(NSInteger)computeNumberOfRows {
-  return 2 + self.photoURLs.count;
+  return 2 + self.photos.count;
 }
 
 -(RestaurantInfoTableViewCell *)configureInfoCell:(RestaurantInfoTableViewCell *)infoCell {
@@ -92,7 +93,7 @@
 }
 
 -(RestaurantMapTableViewCell *)configureMapCell:(RestaurantMapTableViewCell *)mapCell {
-  mapCell.mapPoint = self.annotation;
+  [mapCell setMapPoint: self.annotation];
   return mapCell;
 }
 
@@ -100,15 +101,17 @@
   
   imageCell.imageToDisplay = nil;
   
-  if (index < self.photoURLs.count) {
+  if (index < self.photos.count) {
     
-    [self.imageFetcher fetchImageAtURL:self.photoURLs[index] size:self.cellImageSize completionHandler:^(UIImage *fetchedImage, NSError *error) {
-      if (!error) {
-        imageCell.imageToDisplay = fetchedImage;
-      } else {
-        NSLog(@"ImageError: %@", error.localizedDescription);
-      }
-    }];
+    imageCell.imageToDisplay = self.photos[index];
+    
+//    [self.imageFetcher fetchImageAtURL:self.photoURLs[index] size:self.cellImageSize completionHandler:^(UIImage *fetchedImage, NSError *error) {
+//      if (!error) {
+//        imageCell.imageToDisplay = fetchedImage;
+//      } else {
+//        NSLog(@"ImageError: %@", error.localizedDescription);
+//      }
+//    }];
   }
   
   return imageCell;
