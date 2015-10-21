@@ -20,6 +20,8 @@
 @property (strong, nonatomic) NSArray *photos;
 @property (strong, nonatomic) ImageFetcher *imageFetcher;
 @property (nonatomic) CGSize cellImageSize;
+- (IBAction)getDirectionsButtonPressed:(UIButton *)sender;
+
 
 @property (strong, nonatomic) Restaurant *restaurantToDisplay;
 
@@ -134,4 +136,19 @@
 }
 
 
+- (IBAction)getDirectionsButtonPressed:(UIButton *)sender {
+  Class mapItemClass = [MKMapItem class];
+  if (mapItemClass && [mapItemClass respondsToSelector:@selector(openMapsWithItems:launchOptions:)])
+  {
+    // Create an MKMapItem to pass to the Maps app
+    CLLocationCoordinate2D coordinate =
+    CLLocationCoordinate2DMake(_annotation.coordinate.latitude, _annotation.coordinate.longitude);
+    MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:coordinate
+                                                   addressDictionary:nil];
+    MKMapItem *mapItem = [[MKMapItem alloc] initWithPlacemark:placemark];
+    [mapItem setName:_restaurantToDisplay.name];
+    // Pass the map item to the Maps app
+    [mapItem openInMapsWithLaunchOptions:nil];
+  }
+}
 @end
