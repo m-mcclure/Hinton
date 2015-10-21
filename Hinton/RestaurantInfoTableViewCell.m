@@ -11,6 +11,7 @@
 #import "Address.h"
 #import "Hours.h"
 
+
 @interface RestaurantInfoTableViewCell ()
 
 @property (strong, nonatomic) IBOutlet UILabel *restaurantNameLabel;
@@ -46,6 +47,18 @@
   self.restaurantAddressLabel.text = nil;
   self.restaurantHoursLabel.text = nil;
   self.recommendedItemLabel.text = nil;
+  
+  //enable interaction for phone number label
+  self.restaurantPhoneLabel.userInteractionEnabled = YES;
+  UITapGestureRecognizer *tapGesture =
+  [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(callPhone:)];
+  [self.restaurantPhoneLabel addGestureRecognizer:tapGesture];
+}
+
+-(IBAction)callPhone:(id)sender {
+  NSString *formattedPhoneNumberStringPrefix = @"tel:";
+  //format self.restaurantPhone string here for use below
+  //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:s]];
 }
 
 
