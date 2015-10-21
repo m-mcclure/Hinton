@@ -127,6 +127,7 @@
   
   [BackendService fetchRestaurantForID:annotation.restaurantId completionHandler:^(Restaurant *restaurant, NSError *error) {
     if (restaurant) {
+      NSLog(@"this restr's price tier: %@", restaurant.pricePoint);
       self.restaurantToDisplay = restaurant;
       self.tableView.delegate = self;
       self.tableView.dataSource = self;

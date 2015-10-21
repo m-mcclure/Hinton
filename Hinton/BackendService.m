@@ -20,7 +20,7 @@
   
   AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
   [manager GET:fetchAllURLString.absoluteString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//    NSLog(@"Response: %@", responseObject);
+    
     NSArray *mapPoints = [MapPointParser mapPointsFromJSONDictionary:responseObject];
     completionHandler(mapPoints, nil);
   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -60,6 +60,7 @@
     NSLog(@"Error: %@", error.localizedDescription);
     completion(nil, error);
   }];
+
   
 }
 
