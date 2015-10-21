@@ -32,6 +32,8 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   
+  
+  
   self.imageFetcher = [[ImageFetcher alloc] init];
   self.cellImageSize = CGSizeMake(600, 400);
   self.view.tintColor = [UIColor darkGrayColor];
