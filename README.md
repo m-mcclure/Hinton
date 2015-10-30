@@ -4,9 +4,13 @@ Hinton app provides restaurant information and reviews, also including favorite 
 To-do list:
 
 -add price tier ($$$) search/filtering option (and write/rewrite the JSON parsing code to handle that)
+
 -some bugs when switching between address/genre/price filter mode... like the tableview not dismissing, et al.
+
 -of the "website | menu | options" buttons, if any of those three aren't available, instead of just greying that option's text out, remove option completely from view
+
 -tap today's hours to reveal a full list of the hours for each day that week
+
 -make the $$$$ thing on the restaurant detail page grey out any dollar signs for a tier less than the max number of $ symbols
 (meaning, if it's a 3 out of 4 $ price tier, show 4 dollar signs, but grey out the fourth one)
 
