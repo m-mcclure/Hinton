@@ -16,3 +16,19 @@ To-do list:
 
 bonus: i started setting up an option that lets the user tap the restaurant's phone number to dial it with phone, but
 phone number string needs to be formatted properly
+
+====================================================================
+
+Completed:
+
+-Tapping the directions button sends user to Apple Maps and gives directions from user's location
+
+-Removed purple line from map preview in restaurant detail view
+
+-Started setting up feature that dialed restaurant number when tapped; number string needs to be formatted correctly (perhaps remove all non-digits?)
+
+-Made restaurant hours display the correct day's hours
+
+-Don't use XCode 7. Stick with version 6.4
+
+
